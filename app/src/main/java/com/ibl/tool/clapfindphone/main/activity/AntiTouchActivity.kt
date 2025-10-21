@@ -32,6 +32,7 @@ import com.ibl.tool.clapfindphone.main.clap.FeatureClapManager
 import com.ibl.tool.clapfindphone.main.dialog.SelectSoundDialog
 import com.ibl.tool.clapfindphone.utils.AppExtension
 import com.ibl.tool.clapfindphone.utils.BroadcastUtils
+import com.ibl.tool.clapfindphone.utils.PermissionUtils
 import com.ibl.tool.clapfindphone.utils.app.AppPreferences
 import java.util.Locale
 
@@ -175,12 +176,23 @@ class AntiTouchActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
             return
         }
         
-        logEvent("antitouch_activate_click")
-        isActive = true
-        setActiveUI()
+        // Check notification permission
+        checkPermissionNotification()
         
-        classesApp?.save("StopService", "0")
-        startForegroundService(this, Intent(this, AntiTouchService::class.java))
+        if (PermissionUtils.checkNotificationPermission(this)) {
+            logEvent("antitouch_activate_click")
+            isActive = true
+            setActiveUI()
+            
+            classesApp?.save("StopService", "0")
+            startForegroundService(this, Intent(this, AntiTouchService::class.java))
+        }
+    }
+    
+    private fun checkPermissionNotification() {
+        if (!PermissionUtils.checkNotificationPermission(this)) {
+            PermissionUtils.requestNotificationPermission(this)
+        }
     }
 
     private fun deactivateDetection() {
