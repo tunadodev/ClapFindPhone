@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <!-- Top Bar -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_topbar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/baseline_arrow_back"
+            app:tint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="@string/clap_to_find"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_help"
+            app:layout_constraintStart_toEndOf="@+id/btn_back"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btn_help"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_info"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/color_404040" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Activate/Deactivate Button Section -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_button_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_color"
+        android:paddingVertical="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraint_topbar">
+
+        <ImageView
+            android:id="@+id/iv_activate_button"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/deactive"
+            app:layout_constraintBottom_toTopOf="@id/tv_status"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <!-- Status Text -->
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="@string/deactivated"
+            android:textColor="@color/color_404040"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_activate_button" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Sound Container (with white background) -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_sound_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_radius_top_12"
+        android:elevation="4dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@id/native_banner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cl_button_container">
+
+        <!-- Sound Section Header (Fixed - Not scrolling) -->
+        <LinearLayout
+            android:id="@+id/ll_sound_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/sound"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:id="@+id/btn_sound_settings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_settings"
+                app:tint="@color/color_404040" />
+
+        </LinearLayout>
+        <com.ads.nomyek_admob.ads_components.ads_native.YNMNativeAdView
+            android:id="@+id/nativeAd"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginHorizontal="16dp"
+
+            android:visibility="visible"
+            app:layoutCustomNativeAd="@layout/custom_native_admob_medium"
+            app:layoutLoading="@layout/native_shimmer_placeholder"
+            app:layout_constraintTop_toBottomOf="@id/ll_sound_header"
+            />
+
+        <!-- Sound RecyclerView (Scrollable) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcv_sounds"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="20dp"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nativeAd"
+            tools:itemCount="9"
+            tools:listitem="@layout/item_clap_sound" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.ads.nomyek_admob.ads_components.ads_native.YNMNativeAdView
+        android:id="@+id/native_banner"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="7dp"
+        android:visibility="visible"
+        app:layoutCustomNativeAd="@layout/custom_native_admob_medium"
+        app:layoutLoading="@layout/native_shimmer_placeholder"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

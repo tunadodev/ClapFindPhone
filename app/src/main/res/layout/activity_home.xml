@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/drawer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/background_color">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_topbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_menu"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_margin="@dimen/_10sdp"
+                android:src="@drawable/iv_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:ellipsize="end"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="start|center_vertical"
+                android:singleLine="true"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/img_menu"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/nativeAd"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/constraint_topbar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
+
+                <!-- Row 1: clap_btn full width -->
+                <FrameLayout
+                    android:id="@+id/clap_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10sdp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/clap" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|start"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:maxLines="2"
+                        android:text="@string/clap_to_find_phone"
+                        android:textColor="@color/color_404040"
+                        android:textSize="@dimen/_14sdp" />
+
+                </FrameLayout>
+
+                <!-- Row 2: two buttons side by side -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <FrameLayout
+                        android:id="@+id/anti_thiref_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/antithrief" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:maxLines="2"
+                            android:text="@string/anti_theft"
+                            android:textColor="@color/color_404040"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </FrameLayout>
+
+                    <FrameLayout
+                        android:id="@+id/anti_touch_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/antitouch" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="top|start"
+                            android:layout_margin="@dimen/_10sdp"
+                            android:ellipsize="end"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:maxLines="2"
+                            android:text="@string/anti_touch"
+                            android:textColor="@color/color_404040"
+                            android:textSize="@dimen/_14sdp" />
+
+                    </FrameLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+        <com.ads.nomyek_admob.ads_components.ads_native.YNMNativeAdView
+            android:id="@+id/nativeAd"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layoutLoading="@layout/native_shimmer_placeholder" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

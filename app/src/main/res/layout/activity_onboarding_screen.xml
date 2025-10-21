@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_onboard"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/indicator_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_4sdp"
+            android:scrollbarSize="@dimen/_2sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.02"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintVertical_bias="0.5"
+            android:layout_marginBottom="380dp"
+            app:piv_animationType="scale"
+            app:piv_count="4"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_selectedColor="#1380FF"
+            app:piv_unselectedColor="#1A1380FF"
+            app:piv_viewPager="@id/viewpager_onboard" />
+
+        <com.rd.PageIndicatorView
+            android:id="@+id/indicator_view_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="290dp"
+            android:scrollbarSize="@dimen/_2sdp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:piv_animationType="scale"
+            app:piv_count="4"
+            app:piv_dynamicCount="true"
+            app:piv_interactiveAnimation="true"
+            app:piv_selectedColor="#1380FF"
+            app:piv_unselectedColor="#1A1380FF"
+            app:piv_viewPager="@id/viewpager_onboard" />
+
+        <TextView
+            android:id="@+id/tv_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_4sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="@string/next"
+            android:textColor="@color/textColor"
+            android:drawableEnd="@drawable/chevron_right_black"
+            android:drawablePadding="@dimen/_6sdp"
+            android:includeFontPadding="false"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="@id/indicator_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/indicator_view" />
+
+        <TextView
+            android:id="@+id/tv_next2"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/chevron_right_black"
+            android:drawablePadding="@dimen/_6sdp"
+            android:fontFamily="@font/poppins_medium"
+            android:includeFontPadding="false"
+            android:text="@string/next"
+            android:textColor="@color/textColor"
+            android:textSize="@dimen/_14sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_continue_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="@dimen/_15sdp"
+            android:background="@drawable/bg_common_button"
+            android:clickable="true"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="20dp">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_continue"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/transparent"
+                android:backgroundTint="@color/transparent"
+                android:fontFamily="@font/wix_madefor_display_bold"
+                android:gravity="center"
+                android:text="@string/s_continue"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

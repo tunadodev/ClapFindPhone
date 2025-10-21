@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="32dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/bg_radius_12"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Icon -->
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_info"
+            app:tint="@color/color_404040" />
+
+        <!-- Title -->
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Select Sound First"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <!-- Message -->
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="center"
+            android:text="Please select a sound before activating clap detection"
+            android:textColor="@color/color_404040"
+            android:textSize="14sp" />
+
+        <!-- OK Button -->
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_radius_100"
+            android:backgroundTint="#00C853"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text="OK"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

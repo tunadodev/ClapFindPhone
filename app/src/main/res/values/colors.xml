@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text_color">#3C3C3C</color>
+    <color name="color_1D1C21">#1d1c21</color>
+    <color name="color_orange">#F9752B</color>
+    <color name="transparent">#00000000</color>
+    <color name="color_404040">#404040</color>
+    <color name="txt_inactive1">#7E7E7E</color>
+    <color name="txt_inactive2">#F06A33</color>
+    <color name="orange_200">#F9752B</color>
+    <color name="gray_continue">#818181</color>
+    <color name="_818181">#818181</color>
+    <color name="_221f29">#221F29</color>
+    <color name="_949494">#949494</color>
+    <color name="c4c4c4">#C4C4C4</color>
+    <color name="color_221F29">#221F29</color>
+    <color name="color_202020">#202020</color>
+    <color name="f06a33">#F06A33</color>
+    <color name="_828287">#828287</color>
+    <color name="_303030">#303030</color>
+    <color name="_138EFF">#1A138EFF</color>
+    <color name="gray">#333741</color>
+    <color name="gray_500">#85888E</color>
+    <color name="background_color">#F2F4F7</color>
+    <color name="obd_theme_color">#2E90FA</color>
+    <color name="obd_item_lang">#F4F3FF</color>
+    <color name="neutral_50">#666666</color>
+    <color name="text_black">#000000</color>
+</resources>
