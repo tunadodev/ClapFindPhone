@@ -82,10 +82,10 @@ class RemoteConfigManager {
                 timeOutSplash = config.getLong("time_out_splash")
                 retryHigh = config.getBoolean("retry_high")
                 languageOrder = config.getString("language_order")
-                disableAllAds = true //config.getBoolean("disable_all_ads")
+                disableAllAds = config.getBoolean("disable_all_ads")
                 disableObdAds = config.getBoolean("disable_obd_ads")
                 
-                // Load new remote config flags
+                // Load new remote config flagss
                 interSpl = config.getBoolean("inter_spl")
                 interHighSpl = config.getBoolean("inter_high_spl")
                 nativeSpl = config.getBoolean("native_spl")
