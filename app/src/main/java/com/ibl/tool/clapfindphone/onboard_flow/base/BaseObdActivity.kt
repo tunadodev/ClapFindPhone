@@ -478,7 +478,7 @@ public abstract class BaseObdActivity<VB : ViewDataBinding> : AppCompatActivity(
         YNMAds.getInstance().setInitCallback {
             val listAdId: List<AdsNativeMultiPreload.AdIdModel> = listOf(
                 AdsNativeMultiPreload.AdIdModel().apply {
-                    adId = BuildConfig._405_default_nativebn
+                    adId = BuildConfig._404_home_banner
                     adName = "native_banner"
                 }
             )

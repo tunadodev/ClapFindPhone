@@ -176,11 +176,11 @@
     </entry>
     <entry>
         <key>disable_all_ads</key>
-        <value>false</value>
+        <value>true</value>
     </entry>
     <entry>
         <key>disable_obd_ads</key>
-        <value>false</value>
+        <value>true</value>
     </entry>
     <entry>
         <key>interstitial_rule</key>

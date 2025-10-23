@@ -19,7 +19,7 @@ android {
         applicationId = "claptofindphone.antitheft.antitouch"
         minSdk = 23
         targetSdk = 35
-        versionCode = 10000
+        versionCode = 10010
         versionName = "1.0.0"
 
         val formattedDate = SimpleDateFormat("MMM.dd.yyyy.hh.mm.ss", Locale.getDefault()).format(Date())
@@ -124,7 +124,6 @@ android {
             buildConfigField("String", "_403_click_inter", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "_403_resume_open", "\"ca-app-pub-3940256099942544/9257395921\"")
             buildConfigField("String", "_404_home_banner", "\"ca-app-pub-3940256099942544/9214589741\"")
-            buildConfigField("String", "_405_default_nativebn", "\"ca-app-pub-3940256099942544/2247696110\"")
 
             // Theme ads
             buildConfigField("String", "_501_th_detail_native", "\"ca-app-pub-3940256099942544/2247696110\"")
@@ -166,7 +165,7 @@ android {
 
         create("appProd") {
             // Production ad IDs
-            manifestPlaceholders["ad_app_id"] = "ca-app-pub-6513207251178678~3347511713"
+            manifestPlaceholders["ad_app_id"] = "ca-app-pub-6513207251178678~6941439837"
             buildConfigField("String", "key_max", "\"pmaJXAUhzJmbd_UelyvIXNuTfnk5SrmGRbENaSg47iJv8ETOKgTGVbrihsAOVaIF8csgk6LbGUf51PA5HuMpBO\"")
 
             // Splash ads
