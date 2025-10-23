@@ -471,7 +471,7 @@ public abstract class BaseObdActivity<VB : ViewDataBinding> : AppCompatActivity(
     fun loadNativeBanner() {
         if (!isInForeground || AppOpenManager.getInstance().isInterstitialShowing || isDestroyed || isFinishing || Utils.isDisableAllAd()) {
             if (Utils.isDisableAllAd()) {
-                findViewById<YNMNativeAdView>(R.id.native_banner)?.visibility = View.INVISIBLE
+                findViewById<YNMNativeAdView>(R.id.native_banner)?.visibility = View.GONE
             }
             return
         }

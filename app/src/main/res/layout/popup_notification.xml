@@ -40,9 +40,9 @@
                 android:paddingStart="@dimen/_6sdp"
                 android:includeFontPadding="false"
                 android:ellipsize="marquee"
-                android:text="@stritxt_touch_here_notify"
+                android:text="@string/txt_touch_here_notify"
                 android:textColor="@color/white"
-                android:textSize="@dimen/_11sdp"
+                android:textSize="@dimen/_10sdp"
                 android:singleLine="true"/>
 
             <ImageView
