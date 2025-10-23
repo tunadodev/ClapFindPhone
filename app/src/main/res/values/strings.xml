@@ -73,7 +73,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">There are no files.\n Let’s try to <font color="#1380FF">create new files</font> now.</string>
     <string name="create_sound">Create Sound</string>
     <string name="import_audio">Import Audio</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Allow <b>Clap To Find Your Phone</b> to access the Microphone</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Allow the app to access microphone permission to listen for clapping sounds</string>
     <string name="deny">Deny</string>
     <string name="allow">Allow</string>
     <string name="record_sound">Record Sound</string>
@@ -103,7 +103,7 @@
     <string name="delete">Delete</string>
     <string name="maybe_later">Maybe later</string>
     <string name="submit">Submit</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Allow <b>Clap To Find Your Phone</b> to access the Notification</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Allow the app to access notification permission to easily deactivate</string>
     <string name="grant_permission">Permission Request</string>
     <string name="please_grant">Please grant permission to provide phone finder by clapping?</string>
     <string name="record_permission">Record Permission</string>

@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">Il n\'y a pas de fichiers.\n Essayons de <font color="#1380FF">créer de nouveaux fichiers</font> maintenant.</string>
     <string name="create_sound">Créer un son</string>
     <string name="import_audio">Importer de l\'audio</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Autoriser <b>Applaudir pour trouver votre téléphone</b> à accéder au microphone</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Autoriser l\'application à accéder à l\'autorisation du microphone pour écouter les applaudissements</string>
     <string name="deny">Refuser</string>
     <string name="allow">Autoriser</string>
     <string name="record_sound">Enregistrer le son</string>
@@ -87,7 +87,7 @@
     <string name="delete">Supprimer</string>
     <string name="maybe_later">Peut-être plus tard</string>
     <string name="submit">Soumettre</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Autoriser <b>Applaudir pour trouver votre téléphone</b> à accéder aux notifications</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Autoriser l\'application à accéder à l\'autorisation de notification pour désactiver facilement</string>
     <string name="grant_permission">Demande d\'autorisation</string>
     <string name="please_grant">Veuillez accorder l\'autorisation de fournir le localisateur de téléphone en applaudissant ?</string>
     <string name="record_permission">Autorisation d\'enregistrement</string>

@@ -58,7 +58,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">"কোন ফাইল নেই। \n আসুন চেষ্টা করি "</string>
     <string name="create_sound">সাউন্ড তৈরি করুন</string>
     <string name="import_audio">অডিও আমদানি করুন</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">মাইক্রোফোন অ্যাক্সেস করতে <b>আপনার ফোন খুঁজে পেতে হাততালি</b>কে অনুমতি দিন</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">তালি শব্দ শোনার জন্য অ্যাপটিকে মাইক্রোফোন অনুমতি অ্যাক্সেস করতে দিন</string>
     <string name="deny">অস্বীকার করুন</string>
     <string name="allow">অনুমতি দিন</string>
     <string name="record_sound">রেকর্ড সাউন্ড</string>
@@ -88,7 +88,7 @@
     <string name="delete">মুছে দিন</string>
     <string name="maybe_later">হয়তো পরে</string>
     <string name="submit">জমা দিন</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">বিজ্ঞপ্তি অ্যাক্সেস করতে <b>আপনার ফোন খুঁজে পেতে হাততালি</b>কে অনুমতি দিন</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">সহজেই নিষ্ক্রিয় করতে অ্যাপটিকে বিজ্ঞপ্তি অনুমতি অ্যাক্সেস করতে দিন</string>
     <string name="grant_permission">অনুমতির অনুরোধ</string>
     <string name="please_grant">অনুগ্রহ করে হাততালি দিয়ে ফোন ফাইন্ডার দেওয়ার অনুমতি দেবেন?</string>
     <string name="record_permission">রেকর্ড করার অনুমতি</string>

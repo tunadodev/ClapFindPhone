@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">ファイルがありません。\n<font color="#1380FF">新しいファイルを作成</font>してみましょう。</string>
     <string name="create_sound">サウンドを作成</string>
     <string name="import_audio">オーディオをインポート</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone"><b>携帯電話を見つけるための拍手</b>にマイクへのアクセスを許可する</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">拍手音を聞くためにマイクへのアクセス許可をアプリに許可する</string>
     <string name="deny">拒否</string>
     <string name="allow">許可</string>
     <string name="record_sound">サウンドを録音</string>
@@ -87,7 +87,7 @@
     <string name="delete">削除</string>
     <string name="maybe_later">後で</string>
     <string name="submit">送信</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification"><b>携帯電話を見つけるための拍手</b>に通知へのアクセスを許可する</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">簡単に無効化するために通知へのアクセス許可をアプリに許可する</string>
     <string name="grant_permission">許可リクエスト</string>
     <string name="please_grant">拍手して携帯電話を見つける機能を提供するために許可を与えてください？</string>
     <string name="record_permission">録音許可</string>

@@ -30,6 +30,8 @@ import com.ibl.tool.clapfindphone.main.adapter.ClapSoundAdapter
 import com.ibl.tool.clapfindphone.main.clap.ClassesApp
 import com.ibl.tool.clapfindphone.main.clap.FeatureClapManager
 import com.ibl.tool.clapfindphone.main.clap.VocalService
+import com.ibl.tool.clapfindphone.main.dialog.NotificationPermissionDialog
+import com.ibl.tool.clapfindphone.main.dialog.RecordPermissionDialog
 import com.ibl.tool.clapfindphone.main.dialog.SelectSoundDialog
 import com.ibl.tool.clapfindphone.utils.AppExtension
 import com.ibl.tool.clapfindphone.utils.BroadcastUtils
@@ -177,21 +179,58 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
             return
         }
         
-        checkPermissionMicro()
-        if (PermissionUtils.checkMicroPermission(this)) {
-            checkPermissionNotification()
+        // Step 1: Check microphone permission (REQUIRED)
+        requestMicrophonePermission()
+    }
+    
+    private fun requestMicrophonePermission() {
+        if (!PermissionUtils.checkMicroPermission(this)) {
+            logEvent("clap_request_micro_permission")
+            // Show custom dialog first
+            RecordPermissionDialog(this) { allow ->
+                if (allow) {
+                    // User clicked Allow in custom dialog, now request system permission
+                    PermissionUtils.requestMicroPermission(this)
+                } else {
+                    // User clicked Deny in custom dialog
+                    logEvent("clap_micro_permission_denied_dialog")
+                }
+            }.setDialogCancellable(false).show()
+        } else {
+            // Microphone permission granted, move to Step 2
+            requestNotificationPermission()
         }
+    }
+    
+    private fun requestNotificationPermission() {
+        if (!PermissionUtils.checkNotificationPermission(this)) {
+            logEvent("clap_request_notification_permission")
+            // Show custom dialog first
+            NotificationPermissionDialog(this) { allow ->
+                if (allow) {
+                    // User clicked Allow in custom dialog, request system permission
+                    PermissionUtils.requestNotificationPermission(this)
+                    // Continue to activate regardless of system permission result
+                    startDetectionService()
+                } else {
+                    // User clicked Deny in custom dialog, still activate
+                    logEvent("clap_notification_permission_denied_dialog")
+                    startDetectionService()
+                }
+            }.setDialogCancellable(false).show()
+        } else {
+            // Notification permission already granted, activate
+            startDetectionService()
+        }
+    }
+    
+    private fun startDetectionService() {
+        logEvent("clap_activate_click")
+        isActive = true
+        setActiveUI()
         
-        if (PermissionUtils.checkMicroPermission(this) &&
-            PermissionUtils.checkNotificationPermission(this)
-        ) {
-            logEvent("clap_activate_click")
-            isActive = true
-            setActiveUI()
-            
-            classesApp?.save("StopService", "0")
-            startForegroundService(this, Intent(this, VocalService::class.java))
-        }
+        classesApp?.save("StopService", "0")
+        startForegroundService(this, Intent(this, VocalService::class.java))
     }
 
     private fun deactivateDetection() {
@@ -213,18 +252,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
         viewBinding.ivActivateButton.setImageResource(R.drawable.deactive)
         viewBinding.tvStatus.text = "Deactivated"
         viewBinding.tvStatus.setTextColor(Color.parseColor("#404040"))
-    }
-
-    private fun checkPermissionMicro() {
-        if (!PermissionUtils.checkMicroPermission(this)) {
-            PermissionUtils.requestMicroPermission(this)
-        }
-    }
-
-    private fun checkPermissionNotification() {
-        if (!PermissionUtils.checkNotificationPermission(this)) {
-            PermissionUtils.requestNotificationPermission(this)
-        }
     }
 
     private fun isMyServiceRunning(): Boolean {
@@ -298,6 +325,55 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
         } catch (e: Exception) {
             e.printStackTrace()
         }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        
+        when (requestCode) {
+            com.ibl.tool.clapfindphone.REQUEST_MICRO_PERMISSION_CODE -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                    // Microphone permission granted, move to Step 2
+                    logEvent("clap_micro_permission_granted")
+                    requestNotificationPermission()
+                } else {
+                    // Microphone permission denied, show dialog again or go to settings
+                    logEvent("clap_micro_permission_denied_system")
+                    showMicrophonePermissionDeniedDialog()
+                }
+            }
+            com.ibl.tool.clapfindphone.REQUEST_NOTIFICATION_PERMISSION_CODE -> {
+                // Notification permission result doesn't matter, service already started
+                if (grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                    logEvent("clap_notification_permission_granted")
+                } else {
+                    logEvent("clap_notification_permission_denied_system")
+                }
+            }
+        }
+    }
+    
+    private fun showMicrophonePermissionDeniedDialog() {
+        // Show dialog to ask user again or go to settings
+        RecordPermissionDialog(this) { allow ->
+            if (allow) {
+                // Check if should show rationale or go to settings
+                if (shouldShowRequestPermissionRationale(android.Manifest.permission.RECORD_AUDIO)) {
+                    // User can still be asked for permission
+                    PermissionUtils.requestMicroPermission(this)
+                } else {
+                    // User has permanently denied, need to go to settings
+                    logEvent("clap_micro_permission_go_settings")
+                    PermissionUtils.goSettingsForMicroPermission(this)
+                }
+            } else {
+                logEvent("clap_micro_permission_cancelled")
+            }
+        }.setDialogCancellable(false).show()
     }
 
     override fun onBackPressed() {

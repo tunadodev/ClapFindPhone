@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">لا توجد ملفات.\n دعنا نحاول <font color="#1380FF">إنشاء ملفات جديدة</font> الآن.</string>
     <string name="create_sound">إنشاء صوت</string>
     <string name="import_audio">استيراد الصوت</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">السماح لـ <b>التصفيق للعثور على هاتفك</b> بالوصول إلى الميكروفون</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">السماح للتطبيق بالوصول إلى إذن الميكروفون للاستماع إلى أصوات التصفيق</string>
     <string name="deny">رفض</string>
     <string name="allow">سماح</string>
     <string name="record_sound">تسجيل الصوت</string>
@@ -87,7 +87,7 @@
     <string name="delete">حذف</string>
     <string name="maybe_later">ربما لاحقا</string>
     <string name="submit">إرسال</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">السماح لـ <b>التصفيق للعثور على هاتفك</b> بالوصول إلى الإشعارات</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">السماح للتطبيق بالوصول إلى إذن الإشعارات لإلغاء التنشيط بسهولة</string>
     <string name="grant_permission">طلب إذن</string>
     <string name="please_grant">يرجى منح الإذن لتوفير البحث عن الهاتف بالتصفيق؟</string>
     <string name="record_permission">إذن التسجيل</string>

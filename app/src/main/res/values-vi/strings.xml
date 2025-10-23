@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">Không có tệp nào.\n Hãy thử <font color="#1380FF">tạo tệp mới</font> ngay bây giờ.</string>
     <string name="create_sound">Tạo âm thanh</string>
     <string name="import_audio">Nhập âm thanh</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Cho phép <b>Vỗ tay để tìm điện thoại</b> truy cập micrô</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Cho phép ứng dụng cấp quyền ghi âm để lắng nghe tiếng vỗ tay</string>
     <string name="deny">Từ chối</string>
     <string name="allow">Cho phép</string>
     <string name="record_sound">Ghi âm</string>
@@ -87,7 +87,7 @@
     <string name="delete">Xóa</string>
     <string name="maybe_later">Có lẽ sau</string>
     <string name="submit">Gửi</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Cho phép <b>Vỗ tay để tìm điện thoại</b> truy cập thông báo</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Cho phép ứng dụng cấp quyền thông báo để dễ dàng tắt kích hoạt</string>
     <string name="grant_permission">Yêu cầu quyền</string>
     <string name="please_grant">Vui lòng cấp quyền để cung cấp tìm điện thoại bằng cách vỗ tay?</string>
     <string name="record_permission">Quyền ghi âm</string>

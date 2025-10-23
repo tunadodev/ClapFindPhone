@@ -58,7 +58,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">"کوئی فائلیں نہیں ہیں۔\n آئیے کوشش کرتے ہیں۔ "</string>
     <string name="create_sound">آواز بنائیں</string>
     <string name="import_audio">آڈیو درآمد کریں۔</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">مائیکروفون تک رسائی حاصل کرنے کے لیے <b>اپنے فون کو تلاش کرنے کے لیے تالیاں</b> کو اجازت دیں۔</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">تالیوں کی آواز سننے کے لیے ایپ کو مائیکروفون کی اجازت تک رسائی دیں</string>
     <string name="deny">انکار کرنا</string>
     <string name="allow">اجازت دیں۔</string>
     <string name="record_sound">آواز ریکارڈ کریں۔</string>
@@ -88,7 +88,7 @@
     <string name="delete">حذف کریں۔</string>
     <string name="maybe_later">شاید بعد میں</string>
     <string name="submit">جمع کروائیں۔</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">اطلاع تک رسائی حاصل کرنے کے لیے <b>اپنے فون کو ڈھونڈنے کے لیے تالیاں بجائیں</b> کی اجازت دیں۔</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">آسانی سے غیر فعال کرنے کے لیے ایپ کو اطلاع کی اجازت تک رسائی دیں</string>
     <string name="grant_permission">اجازت کی درخواست</string>
     <string name="please_grant">براہ کرم تالی بجا کر فون فائنڈر فراہم کرنے کی اجازت دیں؟</string>
     <string name="record_permission">ریکارڈ کی اجازت</string>

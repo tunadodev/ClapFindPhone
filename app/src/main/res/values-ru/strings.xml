@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">Файлов нет.\n Давайте попробуем <font color="#1380FF">создать новые файлы</font> сейчас.</string>
     <string name="create_sound">Создать звук</string>
     <string name="import_audio">Импортировать аудио</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Разрешить <b>Хлопок для поиска телефона</b> доступ к микрофону</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Разрешить приложению доступ к разрешению микрофона для прослушивания звуков хлопков</string>
     <string name="deny">Отклонить</string>
     <string name="allow">Разрешить</string>
     <string name="record_sound">Записать звук</string>
@@ -87,7 +87,7 @@
     <string name="delete">Удалить</string>
     <string name="maybe_later">Может быть позже</string>
     <string name="submit">Отправить</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Разрешить <b>Хлопок для поиска телефона</b> доступ к уведомлениям</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Разрешить приложению доступ к разрешению уведомлений для легкой деактивации</string>
     <string name="grant_permission">Запрос разрешения</string>
     <string name="please_grant">Пожалуйста, предоставьте разрешение на поиск телефона с помощью хлопка?</string>
     <string name="record_permission">Разрешение на запись</string>

@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">Nie ma plików.\n Spróbujmy teraz <font color="#1380FF">utworzyć nowe pliki</font>.</string>
     <string name="create_sound">Utwórz dźwięk</string>
     <string name="import_audio">Importuj dźwięk</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Zezwól <b>Klaskaniu, aby znaleźć telefon</b> na dostęp do mikrofonu</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Zezwól aplikacji na dostęp do uprawnienia mikrofonu, aby słuchać dźwięków klaskania</string>
     <string name="deny">Odmów</string>
     <string name="allow">Zezwól</string>
     <string name="record_sound">Nagraj dźwięk</string>
@@ -87,7 +87,7 @@
     <string name="delete">Usuń</string>
     <string name="maybe_later">Może później</string>
     <string name="submit">Wyślij</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Zezwól <b>Klaskaniu, aby znaleźć telefon</b> na dostęp do powiadomień</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Zezwól aplikacji na dostęp do uprawnienia powiadomień, aby łatwo dezaktywować</string>
     <string name="grant_permission">Żądanie uprawnień</string>
     <string name="please_grant">Proszę udzielić uprawnienia do wyszukiwania telefonu przez klaskanie?</string>
     <string name="record_permission">Uprawnienie do nagrywania</string>

@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">Er zijn geen bestanden.\n Laten we proberen om nu <font color="#1380FF">nieuwe bestanden te maken</font>.</string>
     <string name="create_sound">Geluid maken</string>
     <string name="import_audio">Audio importeren</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Sta <b>Klappen om je telefoon te vinden</b> toe om toegang te krijgen tot de microfoon</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Sta de app toe om toegang te krijgen tot de microfoontoestemming om klapgeluiden te horen</string>
     <string name="deny">Weigeren</string>
     <string name="allow">Toestaan</string>
     <string name="record_sound">Geluid opnemen</string>
@@ -87,7 +87,7 @@
     <string name="delete">Verwijderen</string>
     <string name="maybe_later">Misschien later</string>
     <string name="submit">Verzenden</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Sta <b>Klappen om je telefoon te vinden</b> toe om toegang te krijgen tot meldingen</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Sta de app toe om toegang te krijgen tot de meldingstoestemming om gemakkelijk te deactiveren</string>
     <string name="grant_permission">Toestemmingsverzoek</string>
     <string name="please_grant">Geef toestemming om de telefoonzoeker door te klappen?</string>
     <string name="record_permission">Opnametoestemming</string>

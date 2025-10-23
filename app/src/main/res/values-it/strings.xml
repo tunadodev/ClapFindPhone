@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">Non ci sono file.\n Proviamo a <font color="#1380FF">creare nuovi file</font> ora.</string>
     <string name="create_sound">Crea suono</string>
     <string name="import_audio">Importa audio</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Consenti a <b>Applaudi per trovare il tuo telefono</b> di accedere al microfono</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Consenti all\'app di accedere al permesso del microfono per ascoltare i suoni degli applausi</string>
     <string name="deny">Nega</string>
     <string name="allow">Consenti</string>
     <string name="record_sound">Registra suono</string>
@@ -87,7 +87,7 @@
     <string name="delete">Elimina</string>
     <string name="maybe_later">Forse più tardi</string>
     <string name="submit">Invia</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Consenti a <b>Applaudi per trovare il tuo telefono</b> di accedere alle notifiche</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Consenti all\'app di accedere al permesso di notifica per disattivare facilmente</string>
     <string name="grant_permission">Richiesta di permesso</string>
     <string name="please_grant">Concedi il permesso per fornire il localizzatore del telefono applaudendo?</string>
     <string name="record_permission">Permesso di registrazione</string>

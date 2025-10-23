@@ -57,7 +57,7 @@
     <string name="there_are_no_files_n_let_s_try_to_create_new_files_now">Es gibt keine Dateien.\n Lassen Sie uns jetzt versuchen, <font color="#1380FF">neue Dateien zu erstellen</font>.</string>
     <string name="create_sound">Sound erstellen</string>
     <string name="import_audio">Audio importieren</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Erlauben Sie <b>Klatschen zum Finden Ihres Telefons</b> den Zugriff auf das Mikrofon</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_microphone">Erlauben Sie der App den Zugriff auf die Mikrofonberechtigung, um Klatschgeräusche zu hören</string>
     <string name="deny">Ablehnen</string>
     <string name="allow">Erlauben</string>
     <string name="record_sound">Sound aufnehmen</string>
@@ -87,7 +87,7 @@
     <string name="delete">Löschen</string>
     <string name="maybe_later">Vielleicht später</string>
     <string name="submit">Senden</string>
-    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Erlauben Sie <b>Klatschen zum Finden Ihres Telefons</b> den Zugriff auf Benachrichtigungen</string>
+    <string name="allow_clap_to_find_your_phone_to_access_the_notification">Erlauben Sie der App den Zugriff auf die Benachrichtigungsberechtigung, um einfach zu deaktivieren</string>
     <string name="grant_permission">Berechtigungsanforderung</string>
     <string name="please_grant">Bitte erteilen Sie die Berechtigung, um die Telefonsuche durch Klatschen bereitzustellen?</string>
     <string name="record_permission">Aufnahmeberechtigung</string>

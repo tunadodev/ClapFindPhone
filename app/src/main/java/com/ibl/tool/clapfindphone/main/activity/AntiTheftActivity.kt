@@ -29,6 +29,7 @@ import com.ibl.tool.clapfindphone.main.adapter.ClapSoundAdapter
 import com.ibl.tool.clapfindphone.main.antitheft.AntiTheftService
 import com.ibl.tool.clapfindphone.main.clap.ClassesApp
 import com.ibl.tool.clapfindphone.main.clap.FeatureClapManager
+import com.ibl.tool.clapfindphone.main.dialog.NotificationPermissionDialog
 import com.ibl.tool.clapfindphone.main.dialog.SelectSoundDialog
 import com.ibl.tool.clapfindphone.utils.AppExtension
 import com.ibl.tool.clapfindphone.utils.BroadcastUtils
@@ -175,23 +176,39 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
             return
         }
         
-        // Check notification permission
-        checkPermissionNotification()
-        
-        if (PermissionUtils.checkNotificationPermission(this)) {
-            logEvent("antitheft_activate_click")
-            isActive = true
-            setActiveUI()
-            
-            classesApp?.save("StopService", "0")
-            startForegroundService(this, Intent(this, AntiTheftService::class.java))
+        // Check notification permission (OPTIONAL - ask but don't block activation)
+        requestNotificationPermission()
+    }
+    
+    private fun requestNotificationPermission() {
+        if (!PermissionUtils.checkNotificationPermission(this)) {
+            logEvent("antitheft_request_notification_permission")
+            // Show custom dialog first
+            NotificationPermissionDialog(this) { allow ->
+                if (allow) {
+                    // User clicked Allow in custom dialog, request system permission
+                    PermissionUtils.requestNotificationPermission(this)
+                    // Continue to activate regardless of system permission result
+                    startDetectionService()
+                } else {
+                    // User clicked Deny in custom dialog, still activate
+                    logEvent("antitheft_notification_permission_denied_dialog")
+                    startDetectionService()
+                }
+            }.setDialogCancellable(false).show()
+        } else {
+            // Notification permission already granted, activate
+            startDetectionService()
         }
     }
     
-    private fun checkPermissionNotification() {
-        if (!PermissionUtils.checkNotificationPermission(this)) {
-            PermissionUtils.requestNotificationPermission(this)
-        }
+    private fun startDetectionService() {
+        logEvent("antitheft_activate_click")
+        isActive = true
+        setActiveUI()
+        
+        classesApp?.save("StopService", "0")
+        startForegroundService(this, Intent(this, AntiTheftService::class.java))
     }
 
     private fun deactivateDetection() {
@@ -282,6 +299,25 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
         } else {
             isActive = true
             setActiveUI()
+        }
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        
+        when (requestCode) {
+            com.ibl.tool.clapfindphone.REQUEST_NOTIFICATION_PERMISSION_CODE -> {
+                // Notification permission result doesn't matter, service already started
+                if (grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                    logEvent("antitheft_notification_permission_granted")
+                } else {
+                    logEvent("antitheft_notification_permission_denied_system")
+                }
+            }
         }
     }
 
