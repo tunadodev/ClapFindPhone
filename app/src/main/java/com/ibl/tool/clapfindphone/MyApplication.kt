@@ -20,6 +20,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.messaging.Constants.TAG
 import com.google.firebase.messaging.FirebaseMessaging
 import com.ibl.tool.clapfindphone.app.AppConstants
+import com.ibl.tool.clapfindphone.app.ObdConstants
 import com.ibl.tool.clapfindphone.data.db.RoomDatabase
 import com.ibl.tool.clapfindphone.onboard_flow.remote_config.RemoteConfigManager
 import com.ibl.tool.clapfindphone.utils.SharedPref
@@ -28,6 +29,7 @@ import com.ibl.tool.clapfindphone.utils.app.AppPreferences
 import com.mbridge.msdk.MBridgeConstans
 import com.mbridge.msdk.MBridgeSDK
 import com.mbridge.msdk.out.MBridgeSDKFactory
+import kotlin.to
 
 
 class MyApplication : AdsApplication() {
@@ -52,15 +54,40 @@ class MyApplication : AdsApplication() {
         // Optional: setup Airbridge
         val airBridgeConfig = AirBridgeConfig()
         airBridgeConfig.isEnableAirBridge = true
-        airBridgeConfig.appNameAirBridge = "easytranslateai"
-        airBridgeConfig.tokenAirBridge = "6fb9738a36ab43ddb9c591aa0659365a"
+        airBridgeConfig.appNameAirBridge = "clapfindphone"
+        airBridgeConfig.tokenAirBridge = "28c928a41ec24693b12ac6c5089779d3"
         airBridgeConfig.userState = Utils.getUserState();
         Utils.setFirstOpenApp(false);
         this.ynmAdsConfig.airBridgeConfig = airBridgeConfig
         this.ynmAdsConfig.setAdTrackingList(
             listOf(
-                YNMAdsConfig.AdItem(BuildConfig._101_spl_inter_high, "inter_splash_highfloor"),
-                YNMAdsConfig.AdItem(BuildConfig._101_v2_spl_inter_high, "inter_splash_highfloor"),)
+                YNMAdsConfig.AdItem(BuildConfig._101_spl_inter_high, ObdConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._101_v2_spl_inter_high, ObdConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._102_spl_native_high, ObdConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._102_v2_spl_native_high, ObdConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._201_lfo_native_high, ObdConstants.NATIVE_LANGUAGE1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._202_lfo_native_high, ObdConstants.NATIVE_LANGUAGE2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._301_onb_native_high, ObdConstants.NATIVE_OB1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._302_onb_native_high, ObdConstants.NATIVE_OB2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._304_onb_native_high, ObdConstants.NATIVE_OB4_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._305_onb_native_high, ObdConstants.NATIVE_OB5_HIGHFLOOR),
+            )
+        )
+        YNMAdsConfig.AD_TRACKING_GROUPS = mapOf(
+            "splash_highfloor_pass" to listOf(
+                ObdConstants.INTER_SPLASH_HIGHFLOOR,
+                ObdConstants.NATIVE_SPLASH_HIGHFLOOR
+            ),
+            "language_highfloor_pass" to listOf(
+                ObdConstants.NATIVE_LANGUAGE1_HIGHFLOOR,
+                ObdConstants.NATIVE_LANGUAGE2_HIGHFLOOR
+            ),
+            "onboard_highfloor_pass" to listOf(
+                ObdConstants.NATIVE_OB1_HIGHFLOOR,
+                ObdConstants.NATIVE_OB2_HIGHFLOOR,
+                ObdConstants.NATIVE_OB4_HIGHFLOOR,
+                ObdConstants.NATIVE_OB5_HIGHFLOOR
+            )
         )
         // Optional: enable ads resume
         this.ynmAdsConfig.idAdResume = ""

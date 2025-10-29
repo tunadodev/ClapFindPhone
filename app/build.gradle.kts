@@ -19,8 +19,8 @@ android {
         applicationId = "claptofindphone.antitheft.antitouch"
         minSdk = 23
         targetSdk = 35
-        versionCode = 10010
-        versionName = "1.0.0"
+        versionCode = 10040
+        versionName = "1.0.4"
 
         val formattedDate = SimpleDateFormat("MMM.dd.yyyy.hh.mm.ss", Locale.getDefault()).format(Date())
         setProperty("archivesBaseName", "${namespace}_V${versionName}_${formattedDate}")

@@ -84,7 +84,6 @@ class RemoteConfigManager {
                 languageOrder = config.getString("language_order")
                 disableAllAds = config.getBoolean("disable_all_ads")
                 disableObdAds = config.getBoolean("disable_obd_ads")
-                
                 // Load new remote config flagss
                 interSpl = config.getBoolean("inter_spl")
                 interHighSpl = config.getBoolean("inter_high_spl")
