@@ -5,64 +5,135 @@ ksp = "2.1.0-1.0.29"
 googleServices = "4.4.2"
 crashlytics = "3.0.2"
 firebaseAppdistribution = "5.0.0"
+applovin = "13.4.0.0"
+applovinSdk = "13.4.0"
+facebook = "6.20.0.1"
+facebookSdk = "latest.release"
+pangle = "7.6.0.3.0"
+mintegral = "16.9.91.1"
+firebaseBom = "33.3.0"
+gson = "2.11.0"
+coreKtx = "1.13.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+junitver = "1.2.1"
+espressoCore = "3.5.1"
+lifecycleRuntimeKtx = "2.8.1"
+activityCompose = "1.9.0"
+composeBom = "2023.08.00"
+hiltVersion = "2.47"
+appcompat = "1.7.0"
+intuitSdp = "1.1.1"
+googleMaterial = "1.12.0"
+airbnbLottie = "6.4.1"
+activity = "1.9.0"
+constraintlayout = "2.1.4"
+googlePlayReview = "2.0.1"
+playServicesAds = "24.5.0"
+playServicesVision = "18.0.0"
+purchases = "7.10.1"
+purchasesVersion = "7.0.0"
+sdkAndroid = "4.7.1"
+shimmer = "0.5.0"
+firebaseMessaging = "24.0.1"
+userMessagingPlatform = "3.0.0"
+navigationFragment = "2.8.5"
+navigationUi = "2.8.5"
+work = "2.10.5"
+room = "2.8.1"
+retrofit = "2.9.0"
+okhttp = "4.12.0"
+cameraview = "2.7.2"
+dotsindicator = "5.1.0"
+unityAds = "4.16.1"
+unityMediation = "4.16.1.0"
+vungleMediation = "7.5.1.0"
+inmobiMediation = "10.8.8.1"
+ironsourceMediation = "9.0.0.1"
+molocoMediation = "4.1.1.0"
+applovinGoogleAdapter = "24.5.0.0"
+applovinFacebookAdapter = "6.20.0.0"
+applovinBytedanceAdapter = "7.6.0.3.0"
+applovinMintegralAdapter = "16.9.91.0"
+applovinUnityAdapter = "4.16.1.0"
+glide = "5.0.0-rc01"
 
 [libraries]
 # Core Android
-androidx_core_ktx = "androidx.core:core-ktx:1.13.1"
-androidx_appcompat = "androidx.appcompat:appcompat:1.7.0"
-google_material = "com.google.android.material:material:1.12.0"
-androidx_constraintlayout = "androidx.constraintlayout:constraintlayout:2.1.4"
-androidx_activity = "androidx.activity:activity:1.9.0"
-androidx_multidex = "androidx.multidex:multidex:2.0.1"
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+google-material = { group = "com.google.android.material", name = "material", version.ref = "googleMaterial" }
+androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+androidx-multidex = "androidx.multidex:multidex:2.0.1"
+
+# Lifecycle
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "room" }
+lifecycle-extensions = "android.arch.lifecycle:extensions:1.1.1"
+lifecycle-compiler = "android.arch.lifecycle:compiler:1.1.1"
 
 # Compose
-androidx_lifecycle_runtime_ktx = "androidx.lifecycle:lifecycle-runtime-ktx:2.8.1"
-androidx_activity_compose = "androidx.activity:activity-compose:1.9.0"
-androidx_compose_bom = "androidx.compose:compose-bom:2023.08.00"
-androidx_ui = "androidx.compose.ui:ui:1.5.1"
-androidx_ui_graphics = "androidx.compose.ui:ui-graphics:1.5.1"
-androidx_ui_tooling = "androidx.compose.ui:ui-tooling:1.5.1"
-androidx_ui_tooling_preview = "androidx.compose.ui:ui-tooling-preview:1.5.1"
-androidx_ui_test_manifest = "androidx.compose.ui:ui-test-manifest:1.5.1"
-androidx_ui_test_junit4 = "androidx.compose.ui:ui-test-junit4:1.5.1"
-androidx_material3 = "androidx.compose.material3:material3:1.1.1"
-google_hilt = "com.google.dagger:hilt-android:2.47"
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# Hilt/Dagger
+google-hilt = { group = "com.google.dagger", name = "hilt-android", version.ref = "hiltVersion" }
 
 # Firebase
-firebase_bom = "com.google.firebase:firebase-bom:33.3.0"
-firebase_analytics_ktx = "com.google.firebase:firebase-analytics-ktx:21.3.0"
-firebase_crashlytics_ktx = "com.google.firebase:firebase-crashlytics-ktx:18.4.1"
-firebase_crashlytics = "com.google.firebase:firebase-crashlytics:18.4.1"
-firebase_analytics = "com.google.firebase:firebase-analytics:21.3.0"
-firebase_messaging = "com.google.firebase:firebase-messaging:24.0.1"
-firebase_config = "com.google.firebase:firebase-config:21.1.1"
-firebase_database = "com.google.firebase:firebase-database:20.2.2"
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics = { module = "com.google.firebase:firebase-analytics" }
+firebase-analytics-ktx = "com.google.firebase:firebase-analytics-ktx:21.3.0"
+firebase-crashlytics = { module = "com.google.firebase:firebase-crashlytics" }
+firebase-crashlytics-ktx = "com.google.firebase:firebase-crashlytics-ktx:18.4.1"
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging", version.ref = "firebaseMessaging" }
+firebase-config = { module = "com.google.firebase:firebase-config" }
+firebase-database = "com.google.firebase:firebase-database:20.2.2"
 
-# Google Play Services
-play_services_ads = "com.google.android.gms:play-services-ads:24.5.0"
-play_review_ktx = "com.google.android.play:review-ktx:2.0.1"
-google_play_core_review = "com.google.android.play:review:2.0.1"
+# Google Play Services & Review
+play-services-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "playServicesAds" }
+play-services-vision = { module = "com.google.android.gms:play-services-vision", version.ref = "playServicesVision" }
+play-review-ktx = "com.google.android.play:review-ktx:2.0.1"
+google-play-core-review = { group = "com.google.android.play", name = "review", version.ref = "googlePlayReview" }
+user-messaging-platform = { module = "com.google.android.ump:user-messaging-platform", version.ref = "userMessagingPlatform" }
 
 # UI Libraries
-glide = "com.github.bumptech.glide:glide:5.0.0-rc01"
-bumptech_glide = "com.github.bumptech.glide:glide:5.0.0-rc01"
-lottie = "com.airbnb.android:lottie:6.4.1"
-airbnb_lottie = "com.airbnb.android:lottie:6.4.1"
-shimmer = "com.facebook.shimmer:shimmer:0.5.0"
+bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "glide" }
+airbnb-lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "airbnbLottie" }
+shimmer = { module = "com.facebook.shimmer:shimmer", version.ref = "shimmer" }
 powermenu = "com.github.skydoves:powermenu:2.2.0"
 spinkit = "com.github.ybq:Android-SpinKit:1.4.0"
 ratingbar = "com.github.yangmbin:RatingBar:1.0.0"
-sdp_android = "com.intuit.sdp:sdp-android:1.1.1"
-intuit_sdp = "com.intuit.sdp:sdp-android:1.1.1"
+intuit-sdp = { group = "com.intuit.sdp", name = "sdp-android", version.ref = "intuitSdp" }
+dotsindicator = { module = "com.tbuonomo:dotsindicator", version.ref = "dotsindicator" }
+
+# Navigation
+androidx-navigation-fragment = { group = "androidx.navigation", name = "navigation-fragment", version.ref = "navigationFragment" }
+androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui", version.ref = "navigationUi" }
 
 # Networking & Data
-gson = "com.google.code.gson:gson:2.11.0"
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 rxjava = "io.reactivex.rxjava3:rxjava:3.0.12"
 rxandroid = "io.reactivex.rxjava3:rxandroid:3.0.0"
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+retrofit-converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "retrofit" }
+okhttp-logging-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", version.ref = "okhttp" }
 
 # Room
-room_ktx = "androidx.room:room-ktx:2.5.2"
-room_compiler = "androidx.room:room-compiler:2.5.2"
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "room" }
+room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
+
+# Work Manager
+androidx-work = { group = "androidx.work", name = "work-runtime-ktx", version.ref = "work" }
 
 # Localization
 localization = "com.akexorcist:localization:1.2.10"
@@ -71,50 +142,57 @@ localization = "com.akexorcist:localization:1.2.10"
 dexter = "com.karumi:dexter:6.2.3"
 
 # Facebook
-facebook_sdk = "com.facebook.android:facebook-android-sdk:latest.release"
-audience_network_sdk = "com.facebook.android:audience-network-sdk:6.17.0"
-facebook = "com.google.ads.mediation:facebook:6.20.0.1"
+facebook-sdk = { module = "com.facebook.android:facebook-android-sdk", version.ref = "facebookSdk" }
+audience-network-sdk = "com.facebook.android:audience-network-sdk:6.17.0"
 
-# Ad Mediation
-facebook_mediation = "com.google.ads.mediation:facebook:6.20.0.1"
-applovin_mediation = "com.google.ads.mediation:applovin:13.4.0.0"
-vungle_mediation = "com.google.ads.mediation:vungle:7.5.1.0"
-pangle_mediation = "com.google.ads.mediation:pangle:7.6.0.3.0"
-mintegral_mediation = "com.google.ads.mediation:mintegral:16.9.91.1"
-pangle = "com.google.ads.mediation:pangle:7.6.0.3.0"
-mintegral = "com.google.ads.mediation:mintegral:16.9.91.1"
-applovin = "com.google.ads.mediation:applovin:13.4.0.0"
+# Ad Mediation - Google AdMob Adapters
+facebook-mediation = { module = "com.google.ads.mediation:facebook", version.ref = "facebook" }
+applovin-mediation = { module = "com.google.ads.mediation:applovin", version.ref = "applovin" }
+vungle-mediation = { module = "com.google.ads.mediation:vungle", version.ref = "vungleMediation" }
+pangle-mediation = { module = "com.google.ads.mediation:pangle", version.ref = "pangle" }
+mintegral-mediation = { module = "com.google.ads.mediation:mintegral", version.ref = "mintegral" }
+unity-ads = { module = "com.unity3d.ads:unity-ads", version.ref = "unityAds" }
+unity-mediation = { module = "com.google.ads.mediation:unity", version.ref = "unityMediation" }
+inmobi-mediation = { module = "com.google.ads.mediation:inmobi", version.ref = "inmobiMediation" }
+ironsource-mediation = { module = "com.google.ads.mediation:ironsource", version.ref = "ironsourceMediation" }
+moloco-mediation = { module = "com.google.ads.mediation:moloco", version.ref = "molocoMediation" }
 
-# Lifecycle
-lifecycle_extensions = "android.arch.lifecycle:extensions:1.1.1"
-lifecycle_compiler = "android.arch.lifecycle:compiler:1.1.1"
+# AppLovin MAX
+applovin-sdk = { module = "com.applovin:applovin-sdk", version.ref = "applovinSdk" }
+applovin-google-adapter = { module = "com.applovin.mediation:google-adapter", version.ref = "applovinGoogleAdapter" }
+applovin-facebook-adapter = { module = "com.applovin.mediation:facebook-adapter", version.ref = "applovinFacebookAdapter" }
+applovin-bytedance-adapter = { module = "com.applovin.mediation:bytedance-adapter", version.ref = "applovinBytedanceAdapter" }
+applovin-mintegral-adapter = { module = "com.applovin.mediation:mintegral-adapter", version.ref = "applovinMintegralAdapter" }
+applovin-unity-adapter = { module = "com.applovin.mediation:unityads-adapter", version.ref = "applovinUnityAdapter" }
 
 # Solar Engine
-solar_engine = "com.reyun.solar.engine.oversea:solar-engine-core:1.2.9.2"
+solar-engine = "com.reyun.solar.engine.oversea:solar-engine-core:1.2.9.2"
 
 # Annotations
-androidx_annotation = "androidx.annotation:annotation:1.0.0"
+androidx-annotation = "androidx.annotation:annotation:1.0.0"
 
-# Additional libraries from translate
-purchases = "com.revenuecat.purchases:purchases:7.10.1"
-purchases_v700 = "com.revenuecat.purchases:purchases:7.0.0"
-sdk_android = "io.airbridge:sdk-android:4.7.1"
-user_messaging_platform = "com.google.android.ump:user-messaging-platform:3.0.0"
-androidx_navigation_fragment = "androidx.navigation:navigation-fragment:2.8.5"
-androidx_navigation_ui = "androidx.navigation:navigation-ui:2.8.5"
+# RevenueCat
+purchases = { module = "com.revenuecat.purchases:purchases", version.ref = "purchases" }
+purchases-v700 = { module = "com.revenuecat.purchases:purchases", version.ref = "purchasesVersion" }
+
+# Airbridge
+sdk-android = { module = "io.airbridge:sdk-android", version.ref = "sdkAndroid" }
+
+# Camera
+cameraview = { module = "com.otaliastudios:cameraview", version.ref = "cameraview" }
 
 # Testing
-junit = "junit:junit:4.13.2"
-androidx_junit = "androidx.test.ext:junit:1.1.5"
-androidx_junit_ktx = "androidx.test.ext:junit-ktx:1.2.1"
-androidx_espresso_core = "androidx.test.espresso:espresso-core:3.5.1"
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-junit-ktx = { group = "androidx.test.ext", name = "junit-ktx", version.ref = "junitver" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 
 [plugins]
-android_application = "com.android.application:8.4.0"
-android_library = "com.android.library:8.4.0"
-jetbrains_kotlin_android = "org.jetbrains.kotlin.android:2.1.0"
-google_gms_google_services = "com.google.gms.google-services:4.4.2"
-google_firebase_crashlytics = "com.google.firebase.crashlytics:3.0.2"
-google_firebase_appdistribution = "com.google.firebase.appdistribution:5.0.0"
-google_devtools_ksp = "com.google.devtools.ksp:2.1.0-1.0.29"
-compose_compiler = "org.jetbrains.kotlin.plugin.compose:2.1.0"
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleServices" }
+firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "crashlytics" }
+google-firebase-appdistribution = { id = "com.google.firebase.appdistribution", version = "5.0.0" }
+google-devtools-ksp = { id = "com.google.devtools.ksp", version = "2.1.0-1.0.29" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

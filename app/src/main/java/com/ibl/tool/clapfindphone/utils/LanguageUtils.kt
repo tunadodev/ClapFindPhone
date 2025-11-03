@@ -6,7 +6,6 @@ import android.text.TextUtils
 import com.ibl.tool.clapfindphone.R
 import com.ibl.tool.clapfindphone.data.model.ItemLanguage
 import com.ibl.tool.clapfindphone.data.preferences.SharedPrefs
-import com.ibl.tool.clapfindphone.onboard_flow.remote_config.RemoteConfigManager
 import com.ibl.tool.clapfindphone.utils.app.AppPreferences
 import com.ibl.tool.clapfindphone.utils.constant.Constants
 import java.util.Locale

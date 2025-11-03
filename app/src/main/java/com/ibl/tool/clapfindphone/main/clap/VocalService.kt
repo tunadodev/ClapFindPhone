@@ -47,8 +47,14 @@ class VocalService : Service() {
             getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         notificationManager.cancel(1234)
 
-        val notification = buildNotification()
-        startForeground(1234, notification)
+        try {
+            val notification = buildNotification()
+            startForeground(1234, notification)
+        } catch (e: Exception) {
+            Log.e("VocalService", "Error starting foreground", e)
+            stopSelf()
+            return START_NOT_STICKY
+        }
 
         if (intent.action == ACTION_NOTIFICATION_CLICKED_SERVICE) {
             performNotificationAction()

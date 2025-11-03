@@ -22,7 +22,6 @@ import com.ibl.tool.clapfindphone.BuildConfig
 import com.ibl.tool.clapfindphone.R
 import com.ibl.tool.clapfindphone.app.AppConstants
 import com.ibl.tool.clapfindphone.data.model.SoundItem
-import com.ibl.tool.clapfindphone.onboard_flow.base.BaseObdActivity
 import com.ibl.tool.clapfindphone.data.repo.AppRepository
 import com.ibl.tool.clapfindphone.databinding.ActivityDetectionCommonBinding
 import com.ibl.tool.clapfindphone.main.adapter.ClapSoundAdapter
@@ -31,14 +30,15 @@ import com.ibl.tool.clapfindphone.main.clap.ClassesApp
 import com.ibl.tool.clapfindphone.main.clap.FeatureClapManager
 import com.ibl.tool.clapfindphone.main.dialog.NotificationPermissionDialog
 import com.ibl.tool.clapfindphone.main.dialog.SelectSoundDialog
-import com.ibl.tool.clapfindphone.utils.AppExtension
 import com.ibl.tool.clapfindphone.utils.BroadcastUtils
 import com.ibl.tool.clapfindphone.utils.PermissionUtils
 import com.ibl.tool.clapfindphone.utils.app.AppPreferences
+import com.jrm.base.BaseActivity
+import com.jrm.utils.BaseExtension
 import java.util.Locale
 
 @Suppress("DEPRECATION")
-class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
+class AntiTheftActivity : BaseActivity<ActivityDetectionCommonBinding>() {
     
     private var classesApp: ClassesApp? = null
     private lateinit var currentSoundItem: SoundItem
@@ -65,7 +65,6 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     }
 
     override fun initViews() {
-        nameView = "antitheft_screen"
         classesApp = ClassesApp(this)
         
         // Set title for Anti Theft
@@ -79,7 +78,6 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
         
         // Check if clicked from notification
         if (intent?.action == ACTION_NOTIFICATION_CLICKED_SERVICE) {
-            logEvent("click_noti_deactivate_antitheft")
             deactivateDetection()
         }
         
@@ -100,7 +98,7 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
                 adName = AppConstants.NATIVE_ANTI_THIEF
             }
         )
-        showNative(listAdId, AppConstants.NATIVE_ANTI_THIEF, R.layout.custom_native_admob_small)
+        showRefreshNative(listAdId, AppConstants.NATIVE_ANTI_THIEF,"nativeAd", R.layout.custom_native_admob_small)
         showRefreshNativeBanner()
     }
 
@@ -137,17 +135,11 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
 
     private fun addEvent() {
         viewBinding.btnBack.setOnClickListener {
-            logEvent("antitheft_back_click")
             navigateToHome()
         }
-        
-//        viewBinding.btnHelp.setOnClickListener {
-//            logEvent("antitheft_help_click")
-//            startActivity(Intent(this, HowToUseActivity::class.java))
-//        }
+
         
         viewBinding.btnSoundSettings.setOnClickListener {
-            logEvent("antitheft_sound_settings_click")
             startActivity(Intent(this, SettingActivity::class.java))
         }
         
@@ -171,7 +163,6 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     private fun activateDetection() {
         // Check if user has selected a sound
         if (!AppPreferences.instance.hasSelectedSound) {
-            logEvent("antitheft_activate_without_sound")
             showSelectSoundDialog()
             return
         }
@@ -182,7 +173,6 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     
     private fun requestNotificationPermission() {
         if (!PermissionUtils.checkNotificationPermission(this)) {
-            logEvent("antitheft_request_notification_permission")
             // Show custom dialog first
             NotificationPermissionDialog(this) { allow ->
                 if (allow) {
@@ -192,7 +182,6 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
                     startDetectionService()
                 } else {
                     // User clicked Deny in custom dialog, still activate
-                    logEvent("antitheft_notification_permission_denied_dialog")
                     startDetectionService()
                 }
             }.setDialogCancellable(false).show()
@@ -203,16 +192,29 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     }
     
     private fun startDetectionService() {
-        logEvent("antitheft_activate_click")
         isActive = true
         setActiveUI()
         
         classesApp?.save("StopService", "0")
-        startForegroundService(this, Intent(this, AntiTheftService::class.java))
+        
+        try {
+            startForegroundService(this, Intent(this, AntiTheftService::class.java))
+        } catch (e: Exception) {
+            Log.e("AntiTheftActivity", "Error starting service", e)
+            // If service can't start, revert UI
+            isActive = false
+            setInactiveUI()
+            
+            // Show error to user
+            android.widget.Toast.makeText(
+                this,
+                "Cannot start service. Please try again.",
+                android.widget.Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     private fun deactivateDetection() {
-        logEvent("antitheft_deactivate_click")
         isActive = false
         setInactiveUI()
         
@@ -313,9 +315,7 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
             com.ibl.tool.clapfindphone.REQUEST_NOTIFICATION_PERMISSION_CODE -> {
                 // Notification permission result doesn't matter, service already started
                 if (grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
-                    logEvent("antitheft_notification_permission_granted")
                 } else {
-                    logEvent("antitheft_notification_permission_denied_system")
                 }
             }
         }
@@ -331,7 +331,8 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     }
 
     override fun onBackPressed() {
-        AppExtension.showActivity(this, HomeActivity::class.java, null)
+        super.onBackPressed()
+        BaseExtension.showActivityWithAd(this, HomeActivity::class.java, null)
     }
     
     private fun navigateToHome() {
@@ -345,7 +346,6 @@ class AntiTheftActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
         val shouldShowGuide = !AppPreferences.instance.hasSelectedSound
         soundAdapter.setShowGuide(shouldShowGuide)
         if (shouldShowGuide) {
-            logEvent("antitheft_guide_shown")
         }
     }
     

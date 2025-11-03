@@ -32,12 +32,12 @@ class FeatureClapManager(private val context: Context) {
         VibrateFlashThread.isCancellable = true
         stopSound()
         VibrateFlashThread.stopAll()
-        callback.invoke(true)
+        callback?.invoke(true)
     }
     private val audioManager: AudioManager by lazy {
         context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
     }
-    private lateinit var callback: (Boolean) -> Unit
+    private var callback: ((Boolean) -> Unit)? = null
 
     private fun playSoundSaveGson() {
         val statusPlay = AppPreferences.instance.hasSound
@@ -151,39 +151,55 @@ class FeatureClapManager(private val context: Context) {
             for (cameraId in cameraIds) {
                 val cameraCharacteristics = manager.getCameraCharacteristics(cameraId)
                 if (cameraCharacteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE) == true) {
-                    manager.setTorchMode(cameraId, true)
-                    VibrateFlashThread(
-                        context,
-                        AppPreferences(context).currentFlash,
-                        duration.toInt()
-                    ).start()
-                    handler.postDelayed({
-                        try {
-                            manager.setTorchMode(cameraId, false)
-                        } catch (e: CameraAccessException) {
-                            e.printStackTrace()
-                        }
-                    }, duration)
-                    return
+                    try {
+                        manager.setTorchMode(cameraId, true)
+                        VibrateFlashThread(
+                            context,
+                            AppPreferences(context).currentFlash,
+                            duration.toInt()
+                        ).start()
+                        handler.postDelayed({
+                            try {
+                                manager.setTorchMode(cameraId, false)
+                            } catch (e: CameraAccessException) {
+                                Log.e("FeatureClapManager", "Error turning off flash", e)
+                            } catch (e: Exception) {
+                                Log.e("FeatureClapManager", "Error turning off flash", e)
+                            }
+                        }, duration)
+                        return
+                    } catch (e: CameraAccessException) {
+                        // Camera is in use or unavailable, log and continue
+                        Log.w("FeatureClapManager", "Camera in use or unavailable: ${e.message}")
+                        // Try next camera if available
+                        continue
+                    }
                 }
             }
-            handler.post {
-                Toast.makeText(context, "Your Flash is error", Toast.LENGTH_SHORT).show()
-            }
+            // No camera with flash available or all cameras are in use
+            Log.w("FeatureClapManager", "No available camera with flash")
         } catch (e: CameraAccessException) {
-            throw RuntimeException(e)
+            Log.e("FeatureClapManager", "Camera access error", e)
+        } catch (e: Exception) {
+            Log.e("FeatureClapManager", "Unexpected error in turnOnFlash", e)
         }
     }
 
 
     private fun turnOffFlash() {
         val manager = context.getSystemService(AppCompatActivity.CAMERA_SERVICE) as CameraManager
-        val cameraId: String?
         try {
-            cameraId = manager.cameraIdList[0]
-            manager.setTorchMode(cameraId, false)
-        } catch (e: CameraAccessException) {
-            throw RuntimeException(e)
+            val cameraIds = manager.cameraIdList
+            for (cameraId in cameraIds) {
+                try {
+                    manager.setTorchMode(cameraId, false)
+                } catch (e: CameraAccessException) {
+                    // Camera may be in use or unavailable, continue trying other cameras
+                    Log.w("FeatureClapManager", "Error turning off flash for camera $cameraId: ${e.message}")
+                }
+            }
+        } catch (e: Exception) {
+            Log.e("FeatureClapManager", "Error in turnOffFlash", e)
         }
     }
 
@@ -226,7 +242,7 @@ class FeatureClapManager(private val context: Context) {
     fun stopAll() {
         try {
             handler.removeCallbacks(runnable)
-            callback.invoke(false)
+            callback?.invoke(false)
             VibrateFlashThread.isCancellable = true
             turnOffFlash()
             turnOffVibration()

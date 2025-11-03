@@ -29,7 +29,7 @@ android {
 }
 
 dependencies {
-    implementation(libs.sdp.android)
+    implementation(libs.intuit.sdp)
     implementation(libs.androidx.appcompat)
     implementation(libs.google.material)
     

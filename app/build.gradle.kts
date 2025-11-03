@@ -19,8 +19,8 @@ android {
         applicationId = "claptofindphone.antitheft.antitouch"
         minSdk = 23
         targetSdk = 35
-        versionCode = 10040
-        versionName = "1.0.4"
+        versionCode = 10050
+        versionName = "1.0.5"
 
         val formattedDate = SimpleDateFormat("MMM.dd.yyyy.hh.mm.ss", Locale.getDefault()).format(Date())
         setProperty("archivesBaseName", "${namespace}_V${versionName}_${formattedDate}")
@@ -44,10 +44,6 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("key/release.jks")
-            storePassword = "com.mtg.find.phone.clap.phonefinder.findmyphone"
-            keyAlias = "release"
-            keyPassword = "com.mtg.find.phone.clap.phonefinder.findmyphone"
         }
     }
 
@@ -124,17 +120,6 @@ android {
             buildConfigField("String", "_403_click_inter", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "_403_resume_open", "\"ca-app-pub-3940256099942544/9257395921\"")
             buildConfigField("String", "_404_home_banner", "\"ca-app-pub-3940256099942544/9214589741\"")
-
-            // Theme ads
-            buildConfigField("String", "_501_th_detail_native", "\"ca-app-pub-3940256099942544/2247696110\"")
-            buildConfigField("String", "_502_scroll_native", "\"ca-app-pub-3940256099942544/2247696110\"")
-            buildConfigField("String", "_503_custom_wallpp_native", "\"ca-app-pub-3940256099942544/2247696110\"")
-            buildConfigField("String", "_504_custom_wallpp_reward", "\"ca-app-pub-3940256099942544/5224354917\"")
-            buildConfigField("String", "_505_custom_lock_native", "\"ca-app-pub-3940256099942544/2247696110\"")
-            buildConfigField("String", "_506_custom_lock_reward", "\"ca-app-pub-3940256099942544/5224354917\"")
-            buildConfigField("String", "_507_createmo_reward", "\"ca-app-pub-3940256099942544/5224354917\"")
-            buildConfigField("String", "_508_createmo_native", "\"ca-app-pub-3940256099942544/2247696110\"")
-
             // ss2 splash
             buildConfigField("String", "_101_v2_spl_inter", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "_102_v2_spl_native", "\"ca-app-pub-3940256099942544/2247696110\"")
@@ -241,7 +226,8 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar"))))
-
+    implementation(project(":libbase_obd"))
+    implementation(fileTree(mapOf("dir" to "../libbase_obd/libs", "include" to listOf("*.aar"))))
     // Core Android - Updated versions from translate
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
@@ -300,7 +286,6 @@ dependencies {
     // Facebook
     implementation("androidx.annotation:annotation:1.0.0")
     implementation("com.facebook.android:audience-network-sdk:6.17.0")
-    implementation("com.facebook.android:facebook-android-sdk:latest.release")
     implementation("com.google.ads.mediation:facebook:6.20.0.1")
 
     // Lifecycle components

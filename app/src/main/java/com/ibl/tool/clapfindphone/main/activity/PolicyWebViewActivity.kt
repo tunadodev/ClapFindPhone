@@ -7,9 +7,9 @@ import android.util.Log
 import com.ibl.tool.clapfindphone.BuildConfig
 import com.ibl.tool.clapfindphone.R
 import com.ibl.tool.clapfindphone.databinding.ActivityPolicyWebviewBinding
-import com.ibl.tool.clapfindphone.onboard_flow.base.BaseObdActivity
+import com.jrm.base.BaseActivity
 
-class PolicyWebViewActivity : BaseObdActivity<ActivityPolicyWebviewBinding>() {
+class PolicyWebViewActivity : BaseActivity<ActivityPolicyWebviewBinding>() {
 
     companion object {
         private const val POLICY_URL = "https://sites.google.com/view/coloring-privacypolicy/home"
@@ -26,7 +26,6 @@ class PolicyWebViewActivity : BaseObdActivity<ActivityPolicyWebviewBinding>() {
     }
 
     override fun initViews() {
-        nameView = "policy_screen"
         setupUI()
         addEvent()
     }

@@ -15,7 +15,6 @@ import com.ibl.tool.clapfindphone.R
 import com.ibl.tool.clapfindphone.data.preferences.SharedPrefs
 import com.ibl.tool.clapfindphone.main.dialog.CustomRateAppDialog
 import com.ibl.tool.clapfindphone.utils.constant.Constants
-import com.ibl.tool.clapfindphone.utils.constant.Constants.POLICY_URL
 
 object ActionUtils {
 

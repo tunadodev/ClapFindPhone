@@ -5,20 +5,18 @@ import android.view.View
 import com.ibl.tool.clapfindphone.R
 import com.ibl.tool.clapfindphone.data.preferences.SharedPrefs
 import com.ibl.tool.clapfindphone.databinding.ActivitySettingBinding
-import com.ibl.tool.clapfindphone.onboard_flow.base.BaseObdActivity
 import com.ibl.tool.clapfindphone.utils.ActionUtils
-import com.ibl.tool.clapfindphone.utils.AppExtension
-import com.ibl.tool.clapfindphone.utils.EventLogger
 import com.ibl.tool.clapfindphone.utils.hide
+import com.jrm.base.BaseActivity
+import com.jrm.utils.BaseExtension
 
-class SettingActivity : BaseObdActivity<ActivitySettingBinding>()  {
+class SettingActivity : BaseActivity<ActivitySettingBinding>()  {
     
     override fun getLayoutActivity(): Int {
         return R.layout.activity_setting
     }
 
     override fun initViews() {
-        nameView = "setting_screen"
         setUpRate()
         setupNavigationEvents()
     }
@@ -31,19 +29,15 @@ class SettingActivity : BaseObdActivity<ActivitySettingBinding>()  {
         
         // Language
         viewBinding.btnLanguage.setOnClickListener {
-            EventLogger.getInstance()?.logEvent("click_set_language")
-            // TODO: Navigate to language selection
         }
         
         // Privacy Policy
         viewBinding.btnPrivacy.setOnClickListener {
-            EventLogger.getInstance()?.logEvent("click_set_privacy")
             PolicyWebViewActivity.start(this)
         }
         
         // Rate
         viewBinding.btnRateNavigation.setOnClickListener {
-            EventLogger.getInstance()?.logEvent("click_set_rate")
             ActionUtils.showRateDialog(this, false, callback = {
                 if (it) hideRate()
             })
@@ -51,7 +45,6 @@ class SettingActivity : BaseObdActivity<ActivitySettingBinding>()  {
         
         // Share
         viewBinding.btnShare.setOnClickListener {
-            EventLogger.getInstance()?.logEvent("click_set_share")
             shareApp()
         }
         
@@ -70,7 +63,7 @@ class SettingActivity : BaseObdActivity<ActivitySettingBinding>()  {
     }
     
     private fun navigateToHome() {
-        AppExtension.showActivity(this, HomeActivity::class.java, null)
+        BaseExtension.showActivityWithAd(this, HomeActivity::class.java, null)
     }
 
     private fun hideRate() {

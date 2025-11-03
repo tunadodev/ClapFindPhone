@@ -18,7 +18,6 @@ import com.bumptech.glide.Glide
 import com.ibl.tool.clapfindphone.ACTION_FINISH_DETECT
 import com.ibl.tool.clapfindphone.ACTION_NOTIFICATION_CLICKED_SERVICE
 import com.ibl.tool.clapfindphone.R
-import com.ibl.tool.clapfindphone.base.BaseFragment
 import com.ibl.tool.clapfindphone.data.model.SoundItem
 import com.ibl.tool.clapfindphone.data.repo.AppRepository
 import com.ibl.tool.clapfindphone.databinding.FragmentHomeBinding
@@ -28,6 +27,7 @@ import com.ibl.tool.clapfindphone.main.clap.VocalService
 import com.ibl.tool.clapfindphone.utils.BroadcastUtils
 import com.ibl.tool.clapfindphone.utils.PermissionUtils
 import com.ibl.tool.clapfindphone.utils.app.AppPreferences
+import com.jrm.base.BaseFragment
 
 
 @Suppress("DEPRECATION")

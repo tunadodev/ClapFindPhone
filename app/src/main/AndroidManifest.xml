@@ -86,7 +86,7 @@
                 android:value="Security monitoring for anti-theft detection" />
         </service>
         <activity
-            android:name=".onboard_flow.splash.SplashActivity"
+            android:name="com.jrm.onboarding.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -95,19 +95,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".onboard_flow.language.LanguageActivity"
+            android:name="com.jrm.onboarding.language.LanguageActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".onboard_flow.language.Language2Activity"
+            android:name="com.jrm.onboarding.language.Language2Activity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name=".onboard_flow.onboarding.OnboardingActivity"
+            android:name="com.jrm.onboarding.onboarding.OnboardingActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"
@@ -146,8 +146,8 @@
         <meta-data
             android:name="com.google.android.gms.ads.flag.NATIVE_AD_DEBUGGER_ENABLED"
             android:value="false" />
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
+        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="785460570916646"/>
+        <meta-data android:name="com.facebook.sdk.ClientToken" android:value="2fe780335c96abba4ee71df852a94ab4"/>
 
         <activity android:name="com.facebook.FacebookActivity"
             android:configChanges=

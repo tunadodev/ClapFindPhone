@@ -20,12 +20,14 @@ import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.messaging.Constants.TAG
 import com.google.firebase.messaging.FirebaseMessaging
 import com.ibl.tool.clapfindphone.app.AppConstants
-import com.ibl.tool.clapfindphone.app.ObdConstants
 import com.ibl.tool.clapfindphone.data.db.RoomDatabase
-import com.ibl.tool.clapfindphone.onboard_flow.remote_config.RemoteConfigManager
-import com.ibl.tool.clapfindphone.utils.SharedPref
-import com.ibl.tool.clapfindphone.utils.Utils
+import com.ibl.tool.clapfindphone.navigation.AppNavigatorImpl
 import com.ibl.tool.clapfindphone.utils.app.AppPreferences
+import com.jrm.onboarding.navigation.BaseNavigator
+import com.jrm.utils.BaseConstants
+import com.jrm.utils.BaseUtils
+import com.jrm.utils.SharedPref
+import com.jrm.utils.remote_config.RemoteConfigManager
 import com.mbridge.msdk.MBridgeConstans
 import com.mbridge.msdk.MBridgeSDK
 import com.mbridge.msdk.out.MBridgeSDKFactory
@@ -35,6 +37,8 @@ import kotlin.to
 class MyApplication : AdsApplication() {
     override fun onCreate() {
         super.onCreate()
+        // Initialize navigation
+        BaseNavigator.setInstance(AppNavigatorImpl())
         SharedPref.init(this)
         FirebaseApp.initializeApp(this)
         initFirebaseAnalytics(this)
@@ -56,37 +60,37 @@ class MyApplication : AdsApplication() {
         airBridgeConfig.isEnableAirBridge = true
         airBridgeConfig.appNameAirBridge = "clapfindphone"
         airBridgeConfig.tokenAirBridge = "28c928a41ec24693b12ac6c5089779d3"
-        airBridgeConfig.userState = Utils.getUserState();
-        Utils.setFirstOpenApp(false);
+        airBridgeConfig.userState = BaseUtils.getUserState();
+        BaseUtils.setFirstOpenApp(false);
         this.ynmAdsConfig.airBridgeConfig = airBridgeConfig
         this.ynmAdsConfig.setAdTrackingList(
             listOf(
-                YNMAdsConfig.AdItem(BuildConfig._101_spl_inter_high, ObdConstants.INTER_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._101_v2_spl_inter_high, ObdConstants.INTER_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._102_spl_native_high, ObdConstants.NATIVE_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._102_v2_spl_native_high, ObdConstants.NATIVE_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._201_lfo_native_high, ObdConstants.NATIVE_LANGUAGE1_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._202_lfo_native_high, ObdConstants.NATIVE_LANGUAGE2_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._301_onb_native_high, ObdConstants.NATIVE_OB1_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._302_onb_native_high, ObdConstants.NATIVE_OB2_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._304_onb_native_high, ObdConstants.NATIVE_OB4_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._305_onb_native_high, ObdConstants.NATIVE_OB5_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._101_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._101_v2_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._102_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._102_v2_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._201_lfo_native_high, BaseConstants.NATIVE_LANGUAGE1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._202_lfo_native_high, BaseConstants.NATIVE_LANGUAGE2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._301_onb_native_high, BaseConstants.NATIVE_OB1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._302_onb_native_high, BaseConstants.NATIVE_OB2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._304_onb_native_high, BaseConstants.NATIVE_OB4_HIGHFLOOR),
+                YNMAdsConfig.AdItem(BuildConfig._305_onb_native_high, BaseConstants.NATIVE_OB5_HIGHFLOOR),
             )
         )
         YNMAdsConfig.AD_TRACKING_GROUPS = mapOf(
             "splash_highfloor_pass" to listOf(
-                ObdConstants.INTER_SPLASH_HIGHFLOOR,
-                ObdConstants.NATIVE_SPLASH_HIGHFLOOR
+                BaseConstants.INTER_SPLASH_HIGHFLOOR,
+                BaseConstants.NATIVE_SPLASH_HIGHFLOOR
             ),
             "language_highfloor_pass" to listOf(
-                ObdConstants.NATIVE_LANGUAGE1_HIGHFLOOR,
-                ObdConstants.NATIVE_LANGUAGE2_HIGHFLOOR
+                BaseConstants.NATIVE_LANGUAGE1_HIGHFLOOR,
+                BaseConstants.NATIVE_LANGUAGE2_HIGHFLOOR
             ),
             "onboard_highfloor_pass" to listOf(
-                ObdConstants.NATIVE_OB1_HIGHFLOOR,
-                ObdConstants.NATIVE_OB2_HIGHFLOOR,
-                ObdConstants.NATIVE_OB4_HIGHFLOOR,
-                ObdConstants.NATIVE_OB5_HIGHFLOOR
+                BaseConstants.NATIVE_OB1_HIGHFLOOR,
+                BaseConstants.NATIVE_OB2_HIGHFLOOR,
+                BaseConstants.NATIVE_OB4_HIGHFLOOR,
+                BaseConstants.NATIVE_OB5_HIGHFLOOR
             )
         )
         // Optional: enable ads resume
@@ -150,16 +154,5 @@ class MyApplication : AdsApplication() {
                 Log.d("Fcm :", token);
             })
         }
-
-//        private fun initRemoteConfig(context: Context) {
-//            remoteConfig = Firebase.remoteConfig
-//            val configSettings = remoteConfigSettings {
-//                minimumFetchIntervalInSeconds = 0
-//            }
-//            remoteConfig.setConfigSettingsAsync(configSettings)
-//
-//            // Set default values (make sure they match your XML defaults)
-//            remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
-//        }
     }
 }

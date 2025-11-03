@@ -30,3 +30,4 @@ dependencyResolutionManagement {
 rootProject.name = "ClapFindPhone"
 include(":app")
 include(":custom_seekbar")
+include(":libbase_obd")

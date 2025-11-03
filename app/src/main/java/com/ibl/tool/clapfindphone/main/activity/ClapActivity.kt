@@ -25,7 +25,6 @@ import com.ibl.tool.clapfindphone.app.AppConstants
 import com.ibl.tool.clapfindphone.data.model.SoundItem
 import com.ibl.tool.clapfindphone.data.repo.AppRepository
 import com.ibl.tool.clapfindphone.databinding.ActivityDetectionCommonBinding
-import com.ibl.tool.clapfindphone.onboard_flow.base.BaseObdActivity
 import com.ibl.tool.clapfindphone.main.adapter.ClapSoundAdapter
 import com.ibl.tool.clapfindphone.main.clap.ClassesApp
 import com.ibl.tool.clapfindphone.main.clap.FeatureClapManager
@@ -33,14 +32,15 @@ import com.ibl.tool.clapfindphone.main.clap.VocalService
 import com.ibl.tool.clapfindphone.main.dialog.NotificationPermissionDialog
 import com.ibl.tool.clapfindphone.main.dialog.RecordPermissionDialog
 import com.ibl.tool.clapfindphone.main.dialog.SelectSoundDialog
-import com.ibl.tool.clapfindphone.utils.AppExtension
 import com.ibl.tool.clapfindphone.utils.BroadcastUtils
 import com.ibl.tool.clapfindphone.utils.PermissionUtils
 import com.ibl.tool.clapfindphone.utils.app.AppPreferences
+import com.jrm.base.BaseActivity
+import com.jrm.utils.BaseExtension
 import java.util.Locale
 
 @Suppress("DEPRECATION")
-class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
+class ClapActivity : BaseActivity<ActivityDetectionCommonBinding>() {
     
     private var classesApp: ClassesApp? = null
     private lateinit var currentSoundItem: SoundItem
@@ -67,7 +67,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     }
 
     override fun initViews() {
-        nameView = "clap_screen"
         classesApp = ClassesApp(this)
         
         // Set title for Clap
@@ -81,8 +80,7 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
         
         // Check if clicked from notification
         if (intent?.action == ACTION_NOTIFICATION_CLICKED_SERVICE) {
-            logEvent("click_noti_deactivate_clap")
-            deactivateDetection()
+             deactivateDetection()
         }
         
         // Check if service is running
@@ -102,7 +100,7 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
                 adName = AppConstants.NATIVE_CLAP
             }
         )
-        showNative(listAdId, AppConstants.NATIVE_CLAP, R.layout.custom_native_admob_small)
+        showRefreshNative(listAdId, AppConstants.NATIVE_CLAP,"nativeAd", R.layout.custom_native_admob_small)
         showRefreshNativeBanner()
     }
 
@@ -139,7 +137,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
 
     private fun addEvent() {
         viewBinding.btnBack.setOnClickListener {
-            logEvent("clap_back_click")
             navigateToHome()
         }
         
@@ -149,8 +146,7 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
 //        }
         
         viewBinding.btnSoundSettings.setOnClickListener {
-            logEvent("clap_sound_settings_click")
-            AppExtension.showActivity(this, SettingActivity::class.java, null)
+            BaseExtension.showActivityWithAd(this, SettingActivity::class.java, null)
 
         }
         
@@ -174,7 +170,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     private fun activateDetection() {
         // Check if user has selected a sound
         if (!AppPreferences.instance.hasSelectedSound) {
-            logEvent("clap_activate_without_sound")
             showSelectSoundDialog()
             return
         }
@@ -185,7 +180,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     
     private fun requestMicrophonePermission() {
         if (!PermissionUtils.checkMicroPermission(this)) {
-            logEvent("clap_request_micro_permission")
             // Show custom dialog first
             RecordPermissionDialog(this) { allow ->
                 if (allow) {
@@ -193,7 +187,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
                     PermissionUtils.requestMicroPermission(this)
                 } else {
                     // User clicked Deny in custom dialog
-                    logEvent("clap_micro_permission_denied_dialog")
                 }
             }.setDialogCancellable(false).show()
         } else {
@@ -204,7 +197,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     
     private fun requestNotificationPermission() {
         if (!PermissionUtils.checkNotificationPermission(this)) {
-            logEvent("clap_request_notification_permission")
             // Show custom dialog first
             NotificationPermissionDialog(this) { allow ->
                 if (allow) {
@@ -214,7 +206,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
                     startDetectionService()
                 } else {
                     // User clicked Deny in custom dialog, still activate
-                    logEvent("clap_notification_permission_denied_dialog")
                     startDetectionService()
                 }
             }.setDialogCancellable(false).show()
@@ -225,7 +216,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     }
     
     private fun startDetectionService() {
-        logEvent("clap_activate_click")
         isActive = true
         setActiveUI()
         
@@ -234,7 +224,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
     }
 
     private fun deactivateDetection() {
-        logEvent("clap_deactivate_click")
         isActive = false
         setInactiveUI()
         
@@ -308,7 +297,6 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
         val shouldShowGuide = !AppPreferences.instance.hasSelectedSound
         soundAdapter.setShowGuide(shouldShowGuide)
         if (shouldShowGuide) {
-            logEvent("clap_guide_shown")
         }
     }
     
@@ -338,20 +326,16 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
             com.ibl.tool.clapfindphone.REQUEST_MICRO_PERMISSION_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
                     // Microphone permission granted, move to Step 2
-                    logEvent("clap_micro_permission_granted")
                     requestNotificationPermission()
                 } else {
                     // Microphone permission denied, show dialog again or go to settings
-                    logEvent("clap_micro_permission_denied_system")
                     showMicrophonePermissionDeniedDialog()
                 }
             }
             com.ibl.tool.clapfindphone.REQUEST_NOTIFICATION_PERMISSION_CODE -> {
                 // Notification permission result doesn't matter, service already started
                 if (grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
-                    logEvent("clap_notification_permission_granted")
                 } else {
-                    logEvent("clap_notification_permission_denied_system")
                 }
             }
         }
@@ -367,17 +351,16 @@ class ClapActivity : BaseObdActivity<ActivityDetectionCommonBinding>() {
                     PermissionUtils.requestMicroPermission(this)
                 } else {
                     // User has permanently denied, need to go to settings
-                    logEvent("clap_micro_permission_go_settings")
                     PermissionUtils.goSettingsForMicroPermission(this)
                 }
             } else {
-                logEvent("clap_micro_permission_cancelled")
             }
         }.setDialogCancellable(false).show()
     }
 
     override fun onBackPressed() {
-        AppExtension.showActivity(this, HomeActivity::class.java, null)
+        super.onBackPressed()
+        BaseExtension.showActivityWithAd(this, HomeActivity::class.java, null)
     }
     
     private fun navigateToHome() {

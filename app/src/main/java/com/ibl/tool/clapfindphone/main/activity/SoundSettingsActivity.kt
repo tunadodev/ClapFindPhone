@@ -14,13 +14,12 @@ import com.ibl.tool.clapfindphone.KEY_SOUND_ITEM_DATA
 import com.ibl.tool.clapfindphone.R
 import com.ibl.tool.clapfindphone.data.model.SoundItem
 import com.ibl.tool.clapfindphone.databinding.ActivitySoundSettingsBinding
-import com.ibl.tool.clapfindphone.onboard_flow.base.BaseObdActivity
-import com.ibl.tool.clapfindphone.utils.AppExtension
-import com.ibl.tool.clapfindphone.utils.Utils
 import com.ibl.tool.clapfindphone.utils.app.AppPreferences
 import com.ibl.tool.clapfindphone.utils.app.MediaPlayerAppUtil
+import com.jrm.base.BaseActivity
+import com.jrm.utils.AdsHelper
 
-class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
+class SoundSettingsActivity : BaseActivity<ActivitySoundSettingsBinding>() {
 
     private lateinit var currentSoundItem: SoundItem
     private var currentDuration = 30
@@ -33,7 +32,7 @@ class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
 
     companion object {
         fun start(context: Context, soundItem: SoundItem) {
-            Utils.showInterPreload(context, "sound_settings_screen", object : Runnable {
+            AdsHelper.showInterPreload(context, "sound_settings_screen", object : Runnable {
                 override fun run() {
                     val intent = Intent(context, SoundSettingsActivity::class.java)
                     intent.putExtra(KEY_SOUND_ITEM_DATA, soundItem)
@@ -48,8 +47,7 @@ class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
     }
 
     override fun initViews() {
-        nameView = "sound_settings_screen"
-        
+
         audioManager = getSystemService(Context.AUDIO_SERVICE) as AudioManager
         currentSoundItem = intent.getSerializableExtra(KEY_SOUND_ITEM_DATA) as SoundItem
         
@@ -62,7 +60,7 @@ class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
                 adName = "alert_setting"
             }
         )
-        showNative(listAdId, "alert_setting")
+        showRefreshNative(listAdId, "alert_setting")
     }
 
     private fun setupUI() {
@@ -98,8 +96,7 @@ class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
 
     private fun addEvent() {
         viewBinding.btnClose.setOnClickListener {
-            elementClickEvent("sound_settings_close_click", "button")
-            Utils.showInterPreload(this, nameView, object : Runnable {
+            AdsHelper.showInterPreload(this, activityName, object : Runnable {
                 override fun run() {
                     finish()
                 }
@@ -108,38 +105,31 @@ class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
         }
 
         viewBinding.btnSave.setOnClickListener {
-            elementClickEvent("sound_settings_save_click", "button")
             saveSettings()
         }
 
         viewBinding.btnPlay.setOnClickListener {
-            elementClickEvent("sound_settings_play_click", "button")
             togglePlayPause()
         }
 
         // Duration buttons
         viewBinding.tvDuration5s.setOnClickListener {
-            elementClickEvent("sound_settings_duration_5s_click", "button")
             updateDuration(5)
         }
         
         viewBinding.tvDuration15s.setOnClickListener {
-            elementClickEvent("sound_settings_duration_15s_click", "button")
             updateDuration(15)
         }
 
         viewBinding.tvDuration30s.setOnClickListener {
-            elementClickEvent("sound_settings_duration_30s_click", "button")
             updateDuration(30)
         }
 
         viewBinding.tvDuration45s.setOnClickListener {
-            elementClickEvent("sound_settings_duration_45s_click", "button")
             updateDuration(45)
         }
 
         viewBinding.tvDuration1m.setOnClickListener {
-            elementClickEvent("sound_settings_duration_1m_click", "button")
             updateDuration(60)
         }
 
@@ -158,12 +148,10 @@ class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
 
         // Switches
         viewBinding.switchVibration.setOnCheckedChangeListener { _, isChecked ->
-            elementClickEvent("sound_settings_vibration_${if (isChecked) "on" else "off"}", "switch")
             hasVibration = isChecked
         }
 
         viewBinding.switchFlashlight.setOnCheckedChangeListener { _, isChecked ->
-            elementClickEvent("sound_settings_flashlight_${if (isChecked) "on" else "off"}", "switch")
             hasFlashlight = isChecked
         }
     }
@@ -218,7 +206,7 @@ class SoundSettingsActivity : BaseObdActivity<ActivitySoundSettingsBinding>() {
         
         // Return result
         setResult(RESULT_OK)
-        Utils.showInterPreload(this, nameView, object : Runnable {
+        AdsHelper.showInterPreload(this, activityName, object : Runnable {
             override fun run() {
                 finish()
             }
