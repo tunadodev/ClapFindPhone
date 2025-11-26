@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_4sdp"
     android:background="@drawable/bg_radius_12"
+    android:backgroundTint="@color/theme_color_tertiary"
     android:padding="@dimen/_8sdp">
 
     <ImageView
@@ -22,12 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_4sdp"
         android:ellipsize="end"
-        android:fontFamily="@font/poppins_regular"
+        android:fontFamily="@font/wix_madefor_display_medium"
         android:gravity="center"
         android:maxLines="2"
         android:text="Sound"
-        android:textColor="@color/color_404040"
-        android:textSize="@dimen/_10sdp"
+        android:textColor="@color/white"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_image" />

@@ -3,7 +3,7 @@ package com.ibl.tool.clapfindphone.main.clap
 import android.content.Context
 import android.preference.PreferenceManager
 
-internal class ClassesApp(private val mContext: Context) {
+class ClassesApp(private val mContext: Context) {
     fun read(str: String?, str2: String?): String? {
         return PreferenceManager.getDefaultSharedPreferences(mContext).getString(str, str2)
     }

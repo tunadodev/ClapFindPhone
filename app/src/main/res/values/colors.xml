@@ -3,7 +3,7 @@
     <color name="theme_color">#001D56</color>
     <color name="theme_color_secondary">#0D2F73</color>
     <color name="theme_color_2">#11D0DD</color>
-
+    <color name="theme_color_tertiary">#12409C</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
