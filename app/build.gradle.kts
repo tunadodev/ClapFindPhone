@@ -119,7 +119,7 @@ android {
             buildConfigField("String", "_402_click_inter", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "_403_click_inter", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "_403_resume_open", "\"ca-app-pub-3940256099942544/9257395921\"")
-            buildConfigField("String", "_404_home_banner", "\"ca-app-pub-3940256099942544/9214589741\"")
+
             // ss2 splash
             buildConfigField("String", "_101_v2_spl_inter", "\"ca-app-pub-3940256099942544/1033173712\"")
             buildConfigField("String", "_102_v2_spl_native", "\"ca-app-pub-3940256099942544/2247696110\"")
@@ -175,7 +175,6 @@ android {
             buildConfigField("String", "_401_home_native", "\"ca-app-pub-6513207251178678/8841555304\"")
             buildConfigField("String", "_402_click_inter", "\"ca-app-pub-6513207251178678/1465735967\"")
             buildConfigField("String", "_403_resume_open", "\"ca-app-pub-6513207251178678/1222193389\"")
-            buildConfigField("String", "_404_home_banner", "\"ca-app-pub-6513207251178678/5496548494\"")
 
             // ss2 splash
             buildConfigField("String", "_101_v2_spl_inter", "\"ca-app-pub-6513207251178678/6011485635\"")
