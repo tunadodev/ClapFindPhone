@@ -26,4 +26,24 @@
         <attr name="sb_uncheckbutton_color" format="reference|color" />
 
     </declare-styleable>
+    <declare-styleable name="ButtonFeatApp">
+        <attr name="buttonText" format="string" />
+        <attr name="buttonIcon" format="reference" />
+        <attr name="gradientStartColor" format="color" />
+        <attr name="gradientEndColor" format="color" />
+        <attr name="gradientCenterColor" format="color" />
+        <attr name="cornerRadius" format="dimension" />
+        <!-- New: control icon size & offset inside ButtonFeatApp -->
+        <attr name="buttonIconSize" format="dimension" />
+        <attr name="buttonIconTranslationX" format="dimension" />
+        <attr name="buttonIconTranslationY" format="dimension" />
+        <attr name="buttonIconMarginTop" format="dimension" />
+    </declare-styleable>
+
+    <!-- Home top row toggle item -->
+    <declare-styleable name="HomeToggleItemView">
+        <attr name="toggleTitle" format="string" />
+        <attr name="toggleIcon" format="reference" />
+    </declare-styleable>
+
 </resources>

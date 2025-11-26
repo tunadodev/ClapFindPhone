@@ -3,4 +3,5 @@
     <dimen name="height_toolbar">@dimen/_55sdp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="icon_size">10dp</dimen>
+    <dimen name="default_corner_radius">16dp</dimen>
 </resources>

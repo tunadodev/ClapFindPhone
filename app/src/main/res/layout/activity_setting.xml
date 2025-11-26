@@ -5,14 +5,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/theme_color">
 
     <!-- Top Bar -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_top"
         android:layout_width="match_parent"
         android:layout_height="56dp"
-        android:background="@color/white"
+        android:background="@color/theme_color"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
@@ -21,7 +21,6 @@
             android:layout_height="24dp"
             android:layout_marginStart="16dp"
             android:src="@drawable/baseline_arrow_back"
-            app:tint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,14 +30,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:fontFamily="@font/poppins_semibold"
+            android:fontFamily="@font/wix_madefor_display_bold"
             android:text="@string/settings"
-            android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_back_pl"
             app:layout_constraintStart_toEndOf="@id/btn_back"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/btn_back_pl"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_arrow_back"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/black" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Settings Container -->
@@ -56,6 +67,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/bg_radius_24"
+            android:backgroundTint="@color/theme_color_secondary"
             android:elevation="4dp"
             android:paddingVertical="10dp"
             app:layout_constraintTop_toTopOf="parent">
@@ -68,7 +80,7 @@
                 android:src="@drawable/baseline_language_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/neutral_50" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -76,7 +88,7 @@
                 android:layout_marginStart="7dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/language"
-                android:textColor="@color/text_black"
+                android:textColor="@color/white"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_language"
                 app:layout_constraintStart_toEndOf="@id/iv_language"
@@ -91,6 +103,7 @@
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/bg_radius_24"
+            android:backgroundTint="@color/theme_color_secondary"
             android:elevation="4dp"
             android:paddingVertical="10dp"
             app:layout_constraintTop_toBottomOf="@id/btn_language">
@@ -103,7 +116,7 @@
                 android:src="@drawable/baseline_policy_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/neutral_50" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -111,7 +124,7 @@
                 android:layout_marginStart="7dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/privacy_policy"
-                android:textColor="@color/text_black"
+                android:textColor="@color/white"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_privacy"
                 app:layout_constraintStart_toEndOf="@id/iv_privacy"
@@ -125,6 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/theme_color_secondary"
             android:background="@drawable/bg_radius_24"
             android:elevation="4dp"
             android:paddingVertical="10dp"
@@ -138,7 +152,7 @@
                 android:src="@drawable/rate_star_white"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/neutral_50" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -146,7 +160,7 @@
                 android:layout_marginStart="7dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/rate_this_app"
-                android:textColor="@color/text_black"
+                android:textColor="@color/white"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_rate"
                 app:layout_constraintStart_toEndOf="@id/iv_rate"
@@ -160,6 +174,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="16dp"
             android:layout_marginTop="16dp"
+            android:backgroundTint="@color/theme_color_secondary"
             android:background="@drawable/bg_radius_24"
             android:elevation="4dp"
             android:paddingVertical="10dp"
@@ -173,7 +188,7 @@
                 android:src="@drawable/baseline_app_share_24"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:tint="@color/neutral_50" />
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -181,7 +196,7 @@
                 android:layout_marginStart="7dp"
                 android:fontFamily="@font/poppins_semibold"
                 android:text="@string/share"
-                android:textColor="@color/text_black"
+                android:textColor="@color/white"
                 android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="@id/iv_share"
                 app:layout_constraintStart_toEndOf="@id/iv_share"

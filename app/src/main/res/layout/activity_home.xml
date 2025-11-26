@@ -6,23 +6,24 @@
         android:id="@+id/drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_color">
+        android:background="@color/theme_color">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraint_topbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_56sdp"
-            android:background="@color/white"
+            android:background="@color/theme_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
                 android:id="@+id/img_menu"
-                android:layout_width="@dimen/_20sdp"
-                android:layout_height="@dimen/_20sdp"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
                 android:layout_margin="@dimen/_10sdp"
                 android:src="@drawable/iv_menu"
+                app:tint="@color/white"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,8 +37,8 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:gravity="start|center_vertical"
                 android:singleLine="true"
-                android:text="@string/app_name"
-                android:textColor="@color/black"
+                android:text="Good morning"
+                android:textColor="@color/white"
                 android:textSize="@dimen/_14sdp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -61,96 +62,94 @@
                 android:orientation="vertical"
                 android:padding="@dimen/_10sdp">
 
-                <!-- Row 1: clap_btn full width -->
-                <FrameLayout
+                <!-- Top: 3 feature rows with switch -->
+                <LinearLayout
+                    android:id="@+id/top_toggle_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_radius_24"
+                    android:backgroundTint="@color/theme_color_secondary"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_12sdp">
+
+                    <com.ibl.tool.clapfindphone.main.widget.HomeToggleItemView
+                        android:id="@+id/toggle_clap"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:toggleIcon="@drawable/ic_clap"
+                        app:toggleTitle="@string/clap_to_find_phone" />
+
+                    <com.ibl.tool.clapfindphone.main.widget.HomeToggleItemView
+                        android:id="@+id/toggle_anti_theft"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:toggleIcon="@drawable/ic_alert"
+                        app:toggleTitle="@string/anti_theft" />
+
+                    <com.ibl.tool.clapfindphone.main.widget.HomeToggleItemView
+                        android:id="@+id/toggle_anti_touch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:toggleIcon="@drawable/ic_lock"
+                        app:toggleTitle="@string/anti_touch" />
+
+                </LinearLayout>
+
+                <!-- Spacing between top toggles and feature buttons -->
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_12sdp" />
+
+                <!-- Middle: big gradient button for Clap -->
+                <com.ibl.tool.clapfindphone.main.widget.ButtonFeatApp
                     android:id="@+id/clap_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/_10sdp">
+                    android:layout_marginBottom="@dimen/_10sdp"
+                    app:gradientStartColor="#385AFE"
+                    app:gradientEndColor="#25ECE8"
+                    app:buttonIconTranslationX="10dp"
+                    app:buttonIconTranslationY="20dp"
+                    app:buttonIconSize="130dp"
+                    app:buttonIcon="@drawable/thumb_clap"
+                    app:buttonText="@string/clap_to_find_phone" />
 
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:adjustViewBounds="true"
-                        android:scaleType="fitCenter"
-                        android:src="@drawable/clap" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="top|start"
-                        android:layout_margin="@dimen/_10sdp"
-                        android:ellipsize="end"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:maxLines="2"
-                        android:text="@string/clap_to_find_phone"
-                        android:textColor="@color/color_404040"
-                        android:textSize="@dimen/_14sdp" />
-
-                </FrameLayout>
-
-                <!-- Row 2: two buttons side by side -->
+                <!-- Bottom: two smaller buttons side by side -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <FrameLayout
+                    <com.ibl.tool.clapfindphone.main.widget.ButtonFeatApp
                         android:id="@+id/anti_thiref_btn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="@dimen/_5sdp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        app:gradientStartColor="#2AE0EB"
+                        app:buttonIconTranslationX="10dp"
+                        app:buttonIconMarginTop="20dp"
+                        app:buttonIconTranslationY="16dp"
+                        app:gradientEndColor="#3EFA80"
+                        app:buttonIconSize="100dp"
+                        app:buttonIcon="@drawable/thumb_anti_theif"
+                        app:buttonText="@string/anti_theft" />
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/antithrief" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top|start"
-                            android:layout_margin="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:maxLines="2"
-                            android:text="@string/anti_theft"
-                            android:textColor="@color/color_404040"
-                            android:textSize="@dimen/_14sdp" />
-
-                    </FrameLayout>
-
-                    <FrameLayout
+                    <com.ibl.tool.clapfindphone.main.widget.ButtonFeatApp
                         android:id="@+id/anti_touch_btn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="@dimen/_5sdp"
-                        android:layout_weight="1">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:adjustViewBounds="true"
-                            android:scaleType="fitCenter"
-                            android:src="@drawable/antitouch" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="top|start"
-                            android:layout_margin="@dimen/_10sdp"
-                            android:ellipsize="end"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:maxLines="2"
-                            android:text="@string/anti_touch"
-                            android:textColor="@color/color_404040"
-                            android:textSize="@dimen/_14sdp" />
-
-                    </FrameLayout>
+                        android:layout_weight="1"
+                        app:gradientStartColor="#3CEA8C"
+                        app:buttonIconTranslationX="10dp"
+                        app:buttonIconMarginTop="20dp"
+                        app:buttonIconTranslationY="16dp"
+                        app:gradientEndColor="#376DF0"
+                        app:buttonIconSize="100dp"
+                        app:buttonIcon="@drawable/thumb_touch"
+                        app:buttonText="@string/anti_touch" />
 
                 </LinearLayout>
             </LinearLayout>
