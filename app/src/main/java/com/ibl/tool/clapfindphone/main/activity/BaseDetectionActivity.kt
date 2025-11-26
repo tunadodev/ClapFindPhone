@@ -348,3 +348,4 @@ abstract class BaseDetectionActivity : BaseActivity<ActivityDetectionCommonBindi
 }
 
 
+
