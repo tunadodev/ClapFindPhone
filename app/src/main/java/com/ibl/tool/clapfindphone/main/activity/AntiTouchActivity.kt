@@ -94,7 +94,7 @@ class AntiTouchActivity : BaseActivity<ActivityDetectionCommonBinding>() {
         addEvent()
         val listAdId = listOf(
             AdsNativeMultiPreload.AdIdModel().apply {
-                adId = BuildConfig._504_antitouch_native
+                adId = com.jrm.BuildConfig._504_antitouch_native
                 adName = AppConstants.NATIVE_ANTI_TOUCH
             }
         )

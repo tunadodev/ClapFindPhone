@@ -94,7 +94,7 @@ class AntiTheftActivity : BaseActivity<ActivityDetectionCommonBinding>() {
         addEvent()
         val listAdId = listOf(
             AdsNativeMultiPreload.AdIdModel().apply {
-                adId = BuildConfig._503_antithief_native
+                adId = com.jrm.BuildConfig._503_antithief_native
                 adName = AppConstants.NATIVE_ANTI_THIEF
             }
         )

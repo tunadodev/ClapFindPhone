@@ -65,16 +65,16 @@ class MyApplication : AdsApplication() {
         this.ynmAdsConfig.airBridgeConfig = airBridgeConfig
         this.ynmAdsConfig.setAdTrackingList(
             listOf(
-                YNMAdsConfig.AdItem(BuildConfig._101_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._101_v2_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._102_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._102_v2_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._201_lfo_native_high, BaseConstants.NATIVE_LANGUAGE1_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._202_lfo_native_high, BaseConstants.NATIVE_LANGUAGE2_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._301_onb_native_high, BaseConstants.NATIVE_OB1_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._302_onb_native_high, BaseConstants.NATIVE_OB2_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._304_onb_native_high, BaseConstants.NATIVE_OB4_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._305_onb_native_high, BaseConstants.NATIVE_OB5_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._101_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._101_v2_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._102_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._102_v2_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._201_lfo_native_high, BaseConstants.NATIVE_LANGUAGE1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._202_lfo_native_high, BaseConstants.NATIVE_LANGUAGE2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._301_onb_native_high, BaseConstants.NATIVE_OB1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._302_onb_native_high, BaseConstants.NATIVE_OB2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._304_onb_native_high, BaseConstants.NATIVE_OB4_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._305_onb_native_high, BaseConstants.NATIVE_OB5_HIGHFLOOR),
             )
         )
         YNMAdsConfig.AD_TRACKING_GROUPS = mapOf(

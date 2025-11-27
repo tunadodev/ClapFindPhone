@@ -31,7 +31,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         BaseUtils.setFinishObd(true)
         val listAdId = listOf(
             AdsNativeMultiPreload.AdIdModel().apply {
-                adId = BuildConfig._401_home_native
+                adId = com.jrm.BuildConfig._401_home_native
                 adName = AppConstants.NATIVE_HOME
             }
         )

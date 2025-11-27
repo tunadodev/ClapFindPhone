@@ -96,7 +96,7 @@ class ClapActivity : BaseActivity<ActivityDetectionCommonBinding>() {
         addEvent()
         val listAdId = listOf(
             AdsNativeMultiPreload.AdIdModel().apply {
-                adId = BuildConfig._502_clap2find_native
+                adId = com.jrm.BuildConfig._502_clap2find_native
                 adName = AppConstants.NATIVE_CLAP
             }
         )
