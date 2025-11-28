@@ -1,19 +1,12 @@
 package com.ibl.tool.clapfindphone
 
-import android.app.Activity
-import android.app.Application
 import android.content.Context
-import android.os.Bundle
 import android.util.Log
 import com.ads.nomyek_admob.admobs.Admob
-import com.ads.nomyek_admob.admobs.AppOpenManager
 import com.ads.nomyek_admob.ads_components.YNMAds
 import com.ads.nomyek_admob.application.AdsApplication
 import com.ads.nomyek_admob.config.AirBridgeConfig
 import com.ads.nomyek_admob.config.YNMAdsConfig
-import com.facebook.FacebookSdk
-import com.facebook.ads.AudienceNetworkAds
-import com.facebook.appevents.AppEventsLogger
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -28,9 +21,6 @@ import com.jrm.utils.BaseConstants
 import com.jrm.utils.BaseUtils
 import com.jrm.utils.SharedPref
 import com.jrm.utils.remote_config.RemoteConfigManager
-import com.mbridge.msdk.MBridgeConstans
-import com.mbridge.msdk.MBridgeSDK
-import com.mbridge.msdk.out.MBridgeSDKFactory
 import kotlin.to
 
 
@@ -65,16 +55,16 @@ class MyApplication : AdsApplication() {
         this.ynmAdsConfig.airBridgeConfig = airBridgeConfig
         this.ynmAdsConfig.setAdTrackingList(
             listOf(
-                YNMAdsConfig.AdItem(BuildConfig._101_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._101_v2_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._102_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._102_v2_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._201_lfo_native_high, BaseConstants.NATIVE_LANGUAGE1_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._202_lfo_native_high, BaseConstants.NATIVE_LANGUAGE2_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._301_onb_native_high, BaseConstants.NATIVE_OB1_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._302_onb_native_high, BaseConstants.NATIVE_OB2_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._304_onb_native_high, BaseConstants.NATIVE_OB4_HIGHFLOOR),
-                YNMAdsConfig.AdItem(BuildConfig._305_onb_native_high, BaseConstants.NATIVE_OB5_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._101_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._101_v2_spl_inter_high, BaseConstants.INTER_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._102_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._102_v2_spl_native_high, BaseConstants.NATIVE_SPLASH_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._201_lfo_native_high, BaseConstants.NATIVE_LANGUAGE1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._202_lfo_native_high, BaseConstants.NATIVE_LANGUAGE2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._301_onb_native_high, BaseConstants.NATIVE_OB1_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._302_onb_native_high, BaseConstants.NATIVE_OB2_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._304_onb_native_high, BaseConstants.NATIVE_OB4_HIGHFLOOR),
+                YNMAdsConfig.AdItem(com.jrm.BuildConfig._305_onb_native_high, BaseConstants.NATIVE_OB5_HIGHFLOOR),
             )
         )
         YNMAdsConfig.AD_TRACKING_GROUPS = mapOf(

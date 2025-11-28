@@ -56,7 +56,7 @@ class SoundSettingsActivity : BaseActivity<ActivitySoundSettingsBinding>() {
         addEvent()
         val listAdId = listOf(
             AdsNativeMultiPreload.AdIdModel().apply {
-                adId = BuildConfig._501_alertsetting_native
+                adId = com.jrm.BuildConfig._501_alertsetting_native
                 adName = "alert_setting"
             }
         )
