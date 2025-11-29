@@ -28,7 +28,7 @@ class ClapActivity : BaseDetectionActivity() {
         get() = "Clap to Find Phone"
 
     override val nativeAdId: String
-        get() = BuildConfig._502_clap2find_native
+        get() = com.jrm.BuildConfig._502_clap2find_native
 
     override val nativeAdName: String
         get() = AppConstants.NATIVE_CLAP

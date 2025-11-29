@@ -25,7 +25,7 @@ class AntiTheftActivity : BaseDetectionActivity() {
         get() = "Anti Theft"
 
     override val nativeAdId: String
-        get() = BuildConfig._503_antithief_native
+        get() = com.jrm.BuildConfig._503_antithief_native
 
     override val nativeAdName: String
         get() = AppConstants.NATIVE_ANTI_THIEF

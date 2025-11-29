@@ -25,7 +25,7 @@ class AntiTouchActivity : BaseDetectionActivity() {
         get() = "Anti Touch"
 
     override val nativeAdId: String
-        get() = BuildConfig._504_antitouch_native
+        get() = com.jrm.BuildConfig._504_antitouch_native
 
     override val nativeAdName: String
         get() = AppConstants.NATIVE_ANTI_TOUCH
