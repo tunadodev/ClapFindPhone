@@ -72,21 +72,21 @@
                     android:orientation="vertical"
                     android:padding="@dimen/_12sdp">
 
-                    <com.ibl.tool.clapfindphone.main.widget.HomeToggleItemView
+                    <com.puto.tool.clapfindphone.main.widget.HomeToggleItemView
                         android:id="@+id/toggle_clap"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:toggleIcon="@drawable/ic_clap"
                         app:toggleTitle="@string/clap_to_find_phone" />
 
-                    <com.ibl.tool.clapfindphone.main.widget.HomeToggleItemView
+                    <com.puto.tool.clapfindphone.main.widget.HomeToggleItemView
                         android:id="@+id/toggle_anti_theft"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:toggleIcon="@drawable/ic_alert"
                         app:toggleTitle="@string/anti_theft" />
 
-                    <com.ibl.tool.clapfindphone.main.widget.HomeToggleItemView
+                    <com.puto.tool.clapfindphone.main.widget.HomeToggleItemView
                         android:id="@+id/toggle_anti_touch"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                     android:layout_height="@dimen/_12sdp" />
 
                 <!-- Middle: big gradient button for Clap -->
-                <com.ibl.tool.clapfindphone.main.widget.ButtonFeatApp
+                <com.puto.tool.clapfindphone.main.widget.ButtonFeatApp
                     android:id="@+id/clap_btn"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -121,7 +121,7 @@
                     android:orientation="horizontal"
                     android:weightSum="2">
 
-                    <com.ibl.tool.clapfindphone.main.widget.ButtonFeatApp
+                    <com.puto.tool.clapfindphone.main.widget.ButtonFeatApp
                         android:id="@+id/anti_thiref_btn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                         app:buttonIcon="@drawable/thumb_anti_theif"
                         app:buttonText="@string/anti_theft" />
 
-                    <com.ibl.tool.clapfindphone.main.widget.ButtonFeatApp
+                    <com.puto.tool.clapfindphone.main.widget.ButtonFeatApp
                         android:id="@+id/anti_touch_btn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"

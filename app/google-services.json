@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "196313476495",
-    "project_id": "clap-find-my-phone-baab1",
-    "storage_bucket": "clap-find-my-phone-baab1.firebasestorage.app"
+    "project_number": "391241701082",
+    "project_id": "clap-2-8f421",
+    "storage_bucket": "clap-2-8f421.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:196313476495:android:b5a550d6dc1308a243affa",
+        "mobilesdk_app_id": "1:391241701082:android:fd690e73154ef5231977e3",
         "android_client_info": {
-          "package_name": "claptofindphone.antitheft.antitouch"
+          "package_name": "claptofindphone.donttouch.antitheft"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAVydXURk6f8wfH1-HEs9AfR9ThdC4Rh30"
+          "current_key": "AIzaSyDr3MuPCB9n5MSyT6tQwHwZfOq3qFyzwzo"
         }
       ],
       "services": {

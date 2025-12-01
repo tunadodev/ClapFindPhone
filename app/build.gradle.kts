@@ -12,15 +12,15 @@ plugins {
 }
 
 android {
-    namespace = "com.ibl.tool.clapfindphone"
+    namespace = "com.puto.tool.clapfindphone"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "claptofindphone.antitheft.antitouch"
+        applicationId = "claptofindphone.donttouch.antitheft"
         minSdk = 23
         targetSdk = 35
-        versionCode = 10050
-        versionName = "1.0.5"
+        versionCode = 10001
+        versionName = "1.0.0"
 
         val formattedDate = SimpleDateFormat("MMM.dd.yyyy.hh.mm.ss", Locale.getDefault()).format(Date())
         setProperty("archivesBaseName", "${namespace}_V${versionName}_${formattedDate}")
@@ -120,6 +120,11 @@ android {
                 val timestamp = System.currentTimeMillis() / 1000
                 outputFileName = "clapfindphone_${variant.flavorName}_${variant.buildType.name}_${variant.versionCode}_${timestamp}.apk"
             }
+        }
+    }
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
         }
     }
 }

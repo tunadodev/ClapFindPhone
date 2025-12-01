@@ -1,0 +1,76 @@
+package com.puto.tool.clapfindphone.main.activity
+
+import android.app.ActivityManager
+import android.content.Context
+import android.content.Intent
+import androidx.core.content.ContextCompat.startForegroundService
+import com.puto.tool.clapfindphone.app.AppConstants
+import com.puto.tool.clapfindphone.main.antitheft.AntiTheftService
+
+@Suppress("DEPRECATION")
+class AntiTheftActivity : BaseDetectionActivity() {
+
+    companion object {
+        fun start(context: Context) {
+            val intent = Intent(context, AntiTheftActivity::class.java)
+            context.startActivity(intent)
+        }
+    }
+
+    // region BaseDetectionActivity overrides
+
+    override val screenTitle: String
+        get() = "Anti Theft"
+
+    override val nativeAdId: String
+        get() = com.jrm.BuildConfig._503_antithief_native
+
+    override val nativeAdName: String
+        get() = AppConstants.NATIVE_ANTI_THIEF
+
+    override val notificationIdToCancel: Int
+        get() = 3 // NOTIFICATION_ID from AntiTheftService
+
+    override fun isDetectionServiceRunning(): Boolean {
+        for (runningServiceInfo in (getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager).getRunningServices(
+            Int.MAX_VALUE
+        )) {
+            if (AntiTheftService::class.java.name == runningServiceInfo.service.className) {
+                return true
+            }
+        }
+        return false
+    }
+
+    override fun startDetectionServiceImpl() {
+        startForegroundService(this, Intent(this, AntiTheftService::class.java))
+    }
+
+    override fun stopDetectionServiceImpl() {
+        stopService(Intent(this, AntiTheftService::class.java))
+    }
+
+    override fun onActivateRequested() {
+        // Only notification permission is required here
+        requestNotificationPermissionAndStart()
+    }
+
+    // endregion
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        
+        when (requestCode) {
+            com.puto.tool.clapfindphone.REQUEST_NOTIFICATION_PERMISSION_CODE -> {
+                // Notification permission result doesn't matter, service already started via base
+                if (grantResults.isNotEmpty() && grantResults[0] == android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                } else {
+                }
+            }
+        }
+    }
+}

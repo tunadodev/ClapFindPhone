@@ -22,7 +22,7 @@
             android:textColor="#3C3C3C"
             android:textSize="@dimen/_16sdp" />
 
-        <com.ibl.tool.clapfindphone.main.widget.CustomRenameEditText
+        <com.puto.tool.clapfindphone.main.widget.CustomRenameEditText
             android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_40sdp"
@@ -42,7 +42,7 @@
             android:textSize="@dimen/_14sdp">
 
             <requestFocus />
-        </com.ibl.tool.clapfindphone.main.widget.CustomRenameEditText>
+        </com.puto.tool.clapfindphone.main.widget.CustomRenameEditText>
 
         <LinearLayout
             android:layout_width="match_parent"
