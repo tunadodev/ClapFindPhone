@@ -37,6 +37,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
         setupViews()
         addEvent()
         BaseUtils.setFinishObd(true)
+    }
+
+    override fun onResumeAfterInter() {
+        super.onResumeAfterInter()
         val listAdId = listOf(
             AdsNativeMultiPreload.AdIdModel().apply {
                 adId = com.jrm.BuildConfig._401_home_native
