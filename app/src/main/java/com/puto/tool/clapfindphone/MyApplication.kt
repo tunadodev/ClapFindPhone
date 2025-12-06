@@ -48,8 +48,8 @@ class MyApplication : AdsApplication() {
         // Optional: setup Airbridge
         val airBridgeConfig = AirBridgeConfig()
         airBridgeConfig.isEnableAirBridge = true
-        airBridgeConfig.appNameAirBridge = "clapfindphone"
-        airBridgeConfig.tokenAirBridge = "28c928a41ec24693b12ac6c5089779d3"
+        airBridgeConfig.appNameAirBridge = "clap2"
+        airBridgeConfig.tokenAirBridge = "8f9574744c884a708493d1ec5db0e170"
         airBridgeConfig.userState = BaseUtils.getUserState();
         BaseUtils.setFirstOpenApp(false);
         this.ynmAdsConfig.airBridgeConfig = airBridgeConfig
